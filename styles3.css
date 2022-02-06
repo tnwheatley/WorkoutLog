@@ -1,0 +1,97 @@
+html,
+body {
+	height: 100%;
+	fond-size: 16pt;
+	border    :1px solid #888;
+}
+
+
+h1{
+	font-size: 52pt;
+}
+h3{
+	font-size:24pt;
+}
+
+.gradient{
+	background: rgb(18,13,186);
+	background: linear-gradient(0deg, rgba(18,13,186,1) 0%, rgba(45,231,253,1) 100%);
+}
+
+.pageHeader{
+	margin-top: .6in;
+	margin-bottom: 0in;
+	font-size:48pt;
+	color: #fff;
+}
+
+.col-md-6{
+	margin-top: 1in;
+	margin-bottom: 1in;
+	position: relative;
+        max-width: 100%;
+}
+.col-sm-3{
+	margin-top: .5in;
+}
+
+.col-md-12{
+        margin-top: 0in;
+        margin-bottom: 0in;
+        max-width: 100%;
+}
+
+.main {
+  margin-left:60px;
+  margin-top: 40px;
+}
+
+.homeImageHover {
+      position:absolute;
+      width: 1000px;
+      top: 0;
+      right: 0;
+      left: 12;
+      bottom: 0;
+      object-fit: contain;
+      opacity: 0;
+      transition: opacity 1.5s;
+    }
+
+.col-md-6:hover .homeImageHover{
+      opacity: 1;
+      transition:opacity 1.5s;
+    }
+
+.homeImageMain{      
+      width: 1000px;
+      top: 0;
+      right: 0;
+      left: 0;
+      bottom: 0;
+      object-fit: contain;
+}
+
+li a, .button {
+  text-decoration:none;
+}
+
+li a:hover, .button:hover {
+  color:pink;
+}
+
+.wrapper{
+   width: 600px;
+   margin: 0 auto;
+}
+
+.navbar-light .navbar-brand{
+   color: rgba(0,0,204,1);
+   font-size:20pt;
+   font-weight:bold;
+}
+
+.wrapperCenter{
+text-align: center;
+}
+
