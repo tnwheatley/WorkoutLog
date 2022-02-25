@@ -3,7 +3,7 @@
   $dbname  = 'workoutLogTest';   // Modify these...
   $dbuser  = 'twheatley';   // ...variables according
   $dbpass  = 'RuAu#30!t';   // ...to your installation
-  $appname = "Workout Log"; // ...and preference
+  $appname = "Motivate: Fitness Tracker"; // ...and preference
 
   $connection = new mysqli($dbhost, $dbuser, $dbpass, $dbname);
   if ($connection->connect_error) die($connection->connect_error);

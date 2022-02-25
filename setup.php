@@ -14,14 +14,15 @@
               'id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
                category VARCHAR(16) NOT NULL,
                subcategory VARCHAR(50) NOT NULL,
-	       name VARCHAR(50) NOT NULL,
+	             name VARCHAR(50) NOT NULL,
                information VARCHAR(255)');
 
 
   createTable('members',
               'user VARCHAR(16) NOT NULL UNIQUE,
                pass VARCHAR(255) NOT NULL,
-	       role VARCHAR(16),
+	             role VARCHAR(16),
+               salt VARCHAR(255),
                INDEX(user(6))');
 
   createTable('messages',

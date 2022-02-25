@@ -52,13 +52,17 @@ _header;
       }
       else
       {
-	$row = $result->fetch_array(MYSQLI_NUM);
+	    $row = $result->fetch_array(MYSQLI_NUM);
 
         $result->close();
 
-	if(password_verify($pass,$row[1])){
+        $salt = $row[3];
+
+        $salted = $salt.$pass;
+        
+	if(password_verify($salted,$row[1])){
         session_start();
-	$_SESSION['user'] = $user;
+	      $_SESSION['user'] = $user;
         $_SESSION['pass'] = $pass;
 
         die("<br><br>Welcome $user, you are now logged in. Please <a href='myLog.php?view=$user'>" .

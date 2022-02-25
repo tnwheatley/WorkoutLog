@@ -7,6 +7,8 @@ require_once "header.php";
 $date = $exercise = $distance = $time = $comments  = "";
 $date_err = $exercise_err = $distance_err = $time_err = $comments_err= "";
 
+
+
 // Processing form data when form is submitted
 if($_SERVER["REQUEST_METHOD"] == "POST"){
     // Validate date
@@ -54,6 +56,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     } else{
         $comments = $input_comments;
     }
+
     // Check input errors before inserting in database
     if(empty($date_err) && empty($exercise_err) && empty($distance_err) && empty($time_err) && empty($comments_err)){
         // Prepare an insert statement
@@ -64,7 +67,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             $stmt->bind_param("sssss", $param_date, $param_exercise, $param_distance, $param_time, $param_comments);
 
             // Set parameters
-	    $param_user = $user;
+    	    $param_user = $user;
             $param_date = $date;
             $param_exercise = $exercise;
             $param_distance = $distance;
@@ -98,7 +101,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 <div class = "container-fluid">
                   <div class="row">
                     <div class = "col-sm-3 ">
-                        <h4>Create new workout record</h4>
+                   
       </header>
 
     <div class="wrapper">
@@ -144,3 +147,24 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     </div>
 </body>
 </html>
+
+
+
+
+
+
+<?php
+$sql = "SELECT DISTINCT category FROM exercises";
+
+if($result = $mysqli->query($sql)){
+    echo "<SELECT category=exercise class='form-control' style='width:200px;'>";
+    while($row = $result->fetch_assoc()){
+        echo $row[0];
+        echo "<option value=$row[category]>$row[category]</option>";
+    }
+    echo "</select>";
+}
+else {
+    echo $connection->error;
+}
+?>

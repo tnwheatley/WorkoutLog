@@ -35,16 +35,20 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
   if(empty($user_err) && empty($pass_err)){
 
     // Prepare an insert statement
-    $sql = "INSERT INTO members (user, pass, role) VALUES (?, ?, ?)";
+    $sql = "INSERT INTO members (user, pass, role, salt) VALUES (?, ?, ?, ?)";
 
     if($stmt = $mysqli->prepare($sql)){
         // Bind variables to the prepared statement as parameters
-        $stmt->bind_param("sss", $param_user, $param_pass, $param_role);
+        $stmt->bind_param("ssss", $param_user, $param_pass, $param_role, $param_salt);
 
         // Set parameters
         $param_user = $user;
-        $param_pass = password_hash($pass, PASSWORD_DEFAULT);
-	$param_role = $role;
+        $length = random_bytes('16');
+        $param_salt = bin2hex($length);
+        $salted = $param_salt.$pass;
+        $param_pass = password_hash($salted, PASSWORD_DEFAULT);
+        
+	    $param_role = $role;
 
 	  	 $sql2 = "INSERT INTO profileimg (user, status, extension) VALUES (?, ?, ?)";
 
@@ -54,7 +58,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
         		// Set parameters
         		$param_status = $status;
-			$param_extension = NULL;
+			    $param_extension = NULL;
 
 
 
