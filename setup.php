@@ -48,13 +48,27 @@
 
   createTable('cardioLog',
 	      'id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-	      user VARCHAR(16),
+	            user VARCHAR(16),
               date DATETIME,
               exercise VARCHAR(50),
-	      distance VARCHAR(16),
+	            distance VARCHAR(16),
               time VARCHAR(16),
               comments VARCHAR(4096),
               INDEX(USER(6))');
+  
+  createTable('workoutLog',
+  'id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+        user VARCHAR(16),
+        exerciseType VARCHAR(16),
+        date DATETIME,
+        exercise VARCHAR(50),
+        distance VARCHAR(16),
+        sets VARCHAR(16),
+        repetitions VARCHAR(16),
+        weight VARCHAR(16),
+        time VARCHAR(16),
+        comments VARCHAR(4096),
+        INDEX(USER(6))');
 
   createTable('profileimg',
 	        'user VARCHAR(16),

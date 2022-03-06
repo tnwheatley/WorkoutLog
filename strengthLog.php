@@ -56,126 +56,159 @@ function reload3(){
 
 window.onload = function hideWorkoutCategories(){
         
-    if(cat_js == "Cardio"){
-    //if(document.getElementById("category").value == "Cardio"){
-        document.getElementById("date").style.display="block";
-        document.getElementById("dateL").style.display="block";
-        document.getElementById("exercise").style.display="none";
-        document.getElementById("exerciseL").style.display="none";
-        document.getElementById("distance").style.display="block";
-        document.getElementById("distanceL").style.display="block";
-        document.getElementById("sets").style.display="none";
-        document.getElementById("setsL").style.display="none";
-        document.getElementById("repetitions").style.display="none";
-        document.getElementById("repetitionsL").style.display="none";
-        document.getElementById("weight").style.display="none";
-        document.getElementById("weightL").style.display="none";
-        document.getElementById("time").style.display="block";
-        document.getElementById("timeL").style.display="block";
-        document.getElementById("comments").style.display="block";
-        document.getElementById("commentsL").style.display="block";
-        document.getElementById("subcategory").style.display="block";
-        document.getElementById("name").style.display="block";
-    }
-    else if(cat_js == "Strength"){
-        document.getElementById("date").style.display="block";
-        document.getElementById("dateL").style.display="block";
-        document.getElementById("exercise").style.display="none";
-        document.getElementById("exerciseL").style.display="none";
-        document.getElementById("distance").style.display="none";
-        document.getElementById("distanceL").style.display="none";
-        document.getElementById("sets").style.display="block";
-        document.getElementById("setsL").style.display="block";
-        document.getElementById("repetitions").style.display="block";
-        document.getElementById("repetitionsL").style.display="block";
-        document.getElementById("weight").style.display="block";
-        document.getElementById("weightL").style.display="block";
-        document.getElementById("time").style.display="none";
-        document.getElementById("timeL").style.display="none";
-        document.getElementById("comments").style.display="block";
-        document.getElementById("commentsL").style.display="block";
-        document.getElementById("subcategory").style.display="block";
-        document.getElementById("name").style.display="block";
+    if(enterType == "Enter Exercise"){
+        document.getElementById("category").style.display="block";
+        document.getElementById("subcategory").style.display="none";
+        document.getElementById("name").style.display="none";
+            if(cat_js == "Cardio"){
+            document.getElementById("date").style.display="block";
+            document.getElementById("dateL").style.display="block";
+            document.getElementById("exercise").style.display="block";
+            document.getElementById("exerciseL").style.display="block";
+            document.getElementById("distance").style.display="block";
+            document.getElementById("distanceL").style.display="block";
+            document.getElementById("sets").style.display="none";
+            document.getElementById("setsL").style.display="none";
+            document.getElementById("repetitions").style.display="none";
+            document.getElementById("repetitionsL").style.display="none";
+            document.getElementById("weight").style.display="none";
+            document.getElementById("weightL").style.display="none";
+            document.getElementById("time").style.display="block";
+            document.getElementById("timeL").style.display="block";
+            document.getElementById("comments").style.display="block";
+            document.getElementById("commentsL").style.display="block";
         }
-    else if(cat_js == "Flexibility"){
-        document.getElementById("date").style.display="block";
-        document.getElementById("dateL").style.display="block";
-        document.getElementById("exercise").style.display="none";
-        document.getElementById("exerciseL").style.display="none";
-        document.getElementById("distance").style.display="none";
-        document.getElementById("distanceL").style.display="none";
-        document.getElementById("sets").style.display="block";
-        document.getElementById("setsL").style.display="block";
-        document.getElementById("repetitions").style.display="none";
-        document.getElementById("repetitionsL").style.display="none";
-        document.getElementById("weight").style.display="none";
-        document.getElementById("weightL").style.display="none";
-        document.getElementById("time").style.display="block";
-        document.getElementById("timeL").style.display="block";
-        document.getElementById("comments").style.display="block";
-        document.getElementById("commentsL").style.display="block";
+        else if(cat_js == "Strength"){
+            document.getElementById("date").style.display="block";
+            document.getElementById("dateL").style.display="block";
+            document.getElementById("exercise").style.display="block";
+            document.getElementById("exerciseL").style.display="block";
+            document.getElementById("distance").style.display="none";
+            document.getElementById("distanceL").style.display="none";
+            document.getElementById("sets").style.display="block";
+            document.getElementById("setsL").style.display="block";
+            document.getElementById("repetitions").style.display="block";
+            document.getElementById("repetitionsL").style.display="block";
+            document.getElementById("weight").style.display="block";
+            document.getElementById("weightL").style.display="block";
+            document.getElementById("time").style.display="none";
+            document.getElementById("timeL").style.display="none";
+            document.getElementById("comments").style.display="block";
+            document.getElementById("commentsL").style.display="block";
+            }
+        else if(cat_js == "Flexibility"){
+            document.getElementById("date").style.display="block";
+            document.getElementById("dateL").style.display="block";
+            document.getElementById("exercise").style.display="block";
+            document.getElementById("exerciseL").style.display="block";
+            document.getElementById("distance").style.display="none";
+            document.getElementById("distanceL").style.display="none";
+            document.getElementById("sets").style.display="block";
+            document.getElementById("setsL").style.display="block";
+            document.getElementById("repetitions").style.display="none";
+            document.getElementById("repetitionsL").style.display="none";
+            document.getElementById("weight").style.display="none";
+            document.getElementById("weightL").style.display="none";
+            document.getElementById("time").style.display="block";
+            document.getElementById("timeL").style.display="block";
+            document.getElementById("comments").style.display="block";
+            document.getElementById("commentsL").style.display="block";
+        }
+        else{ 
+            document.getElementById("date").style.display="none";
+            document.getElementById("dateL").style.display="none";
+            document.getElementById("exercise").style.display="none";
+            document.getElementById("exerciseL").style.display="none";
+            document.getElementById("distance").style.display="none";
+            document.getElementById("distanceL").style.display="none";
+            document.getElementById("sets").style.display="none";
+            document.getElementById("setsL").style.display="none";
+            document.getElementById("repetitions").style.display="none";
+            document.getElementById("repetitionsL").style.display="none";
+            document.getElementById("weight").style.display="none";
+            document.getElementById("weightL").style.display="none";
+            document.getElementById("time").style.display="none";
+            document.getElementById("timeL").style.display="none";
+            document.getElementById("comments").style.display="none";
+            document.getElementById("commentsL").style.display="none";
+        }
+    }
+    else if(enterType == "Select Exercise"){
+        document.getElementById("category").style.display="block";
         document.getElementById("subcategory").style.display="block";
         document.getElementById("name").style.display="block";
-    }
-    else if(exerciseType == "Cardio"){
-        document.getElementById("date").style.display="block";
-        document.getElementById("dateL").style.display="block";
-        document.getElementById("exercise").style.display="block";
-        document.getElementById("exerciseL").style.display="block";
-        document.getElementById("distance").style.display="block";
-        document.getElementById("distanceL").style.display="block";
-        document.getElementById("sets").style.display="none";
-        document.getElementById("setsL").style.display="none";
-        document.getElementById("repetitions").style.display="none";
-        document.getElementById("repetitionsL").style.display="none";
-        document.getElementById("weight").style.display="none";
-        document.getElementById("weightL").style.display="none";
-        document.getElementById("time").style.display="block";
-        document.getElementById("timeL").style.display="block";
-        document.getElementById("comments").style.display="block";
-        document.getElementById("commentsL").style.display="block";
-        document.getElementById("subcategory").style.display="none";
-        document.getElementById("name").style.display="none";
-    }
-    else if(exerciseType == "Strength"){
-        document.getElementById("date").style.display="block";
-        document.getElementById("dateL").style.display="block";
-        document.getElementById("exercise").style.display="block";
-        document.getElementById("exerciseL").style.display="block";
-        document.getElementById("distance").style.display="none";
-        document.getElementById("distanceL").style.display="none";
-        document.getElementById("sets").style.display="block";
-        document.getElementById("setsL").style.display="block";
-        document.getElementById("repetitions").style.display="block";
-        document.getElementById("repetitionsL").style.display="block";
-        document.getElementById("weight").style.display="block";
-        document.getElementById("weightL").style.display="block";
-        document.getElementById("time").style.display="none";
-        document.getElementById("timeL").style.display="none";
-        document.getElementById("comments").style.display="block";
-        document.getElementById("commentsL").style.display="block";
-        document.getElementById("subcategory").style.display="none";
-        document.getElementById("name").style.display="none";
+        if(cat_js == "Cardio"){
+            document.getElementById("date").style.display="block";
+            document.getElementById("dateL").style.display="block";
+            document.getElementById("exercise").style.display="none";
+            document.getElementById("exerciseL").style.display="none";
+            document.getElementById("distance").style.display="block";
+            document.getElementById("distanceL").style.display="block";
+            document.getElementById("sets").style.display="none";
+            document.getElementById("setsL").style.display="none";
+            document.getElementById("repetitions").style.display="none";
+            document.getElementById("repetitionsL").style.display="none";
+            document.getElementById("weight").style.display="none";
+            document.getElementById("weightL").style.display="none";
+            document.getElementById("time").style.display="block";
+            document.getElementById("timeL").style.display="block";
+            document.getElementById("comments").style.display="block";
+            document.getElementById("commentsL").style.display="block";
         }
-    else if(exerciseType == "Flexibility"){
-        document.getElementById("date").style.display="block";
-        document.getElementById("dateL").style.display="block";
-        document.getElementById("exercise").style.display="block";
-        document.getElementById("exerciseL").style.display="block";
-        document.getElementById("distance").style.display="none";
-        document.getElementById("distanceL").style.display="none";
-        document.getElementById("sets").style.display="block";
-        document.getElementById("setsL").style.display="block";
-        document.getElementById("repetitions").style.display="none";
-        document.getElementById("repetitionsL").style.display="none";
-        document.getElementById("weight").style.display="none";
-        document.getElementById("weightL").style.display="none";
-        document.getElementById("time").style.display="block";
-        document.getElementById("timeL").style.display="block";
-        document.getElementById("comments").style.display="block";
-        document.getElementById("commentsL").style.display="block";
-        document.getElementById("subcategory").style.display="none";
-        document.getElementById("name").style.display="none";
+        else if(cat_js == "Strength"){
+            document.getElementById("date").style.display="block";
+            document.getElementById("dateL").style.display="block";
+            document.getElementById("exercise").style.display="none";
+            document.getElementById("exerciseL").style.display="none";
+            document.getElementById("distance").style.display="none";
+            document.getElementById("distanceL").style.display="none";
+            document.getElementById("sets").style.display="block";
+            document.getElementById("setsL").style.display="block";
+            document.getElementById("repetitions").style.display="block";
+            document.getElementById("repetitionsL").style.display="block";
+            document.getElementById("weight").style.display="block";
+            document.getElementById("weightL").style.display="block";
+            document.getElementById("time").style.display="none";
+            document.getElementById("timeL").style.display="none";
+            document.getElementById("comments").style.display="block";
+            document.getElementById("commentsL").style.display="block";
+            }
+        else if(cat_js == "Flexibility"){
+            document.getElementById("date").style.display="block";
+            document.getElementById("dateL").style.display="block";
+            document.getElementById("exercise").style.display="none";
+            document.getElementById("exerciseL").style.display="none";
+            document.getElementById("distance").style.display="none";
+            document.getElementById("distanceL").style.display="none";
+            document.getElementById("sets").style.display="block";
+            document.getElementById("setsL").style.display="block";
+            document.getElementById("repetitions").style.display="none";
+            document.getElementById("repetitionsL").style.display="none";
+            document.getElementById("weight").style.display="none";
+            document.getElementById("weightL").style.display="none";
+            document.getElementById("time").style.display="block";
+            document.getElementById("timeL").style.display="block";
+            document.getElementById("comments").style.display="block";
+            document.getElementById("commentsL").style.display="block";
+        }
+        else{ 
+            document.getElementById("date").style.display="none";
+            document.getElementById("dateL").style.display="none";
+            document.getElementById("exercise").style.display="none";
+            document.getElementById("exerciseL").style.display="none";
+            document.getElementById("distance").style.display="none";
+            document.getElementById("distanceL").style.display="none";
+            document.getElementById("sets").style.display="none";
+            document.getElementById("setsL").style.display="none";
+            document.getElementById("repetitions").style.display="none";
+            document.getElementById("repetitionsL").style.display="none";
+            document.getElementById("weight").style.display="none";
+            document.getElementById("weightL").style.display="none";
+            document.getElementById("time").style.display="none";
+            document.getElementById("timeL").style.display="none";
+            document.getElementById("comments").style.display="none";
+            document.getElementById("commentsL").style.display="none";
+        }
     }
     else{
         document.getElementById("date").style.display="none";
@@ -196,7 +229,6 @@ window.onload = function hideWorkoutCategories(){
         document.getElementById("commentsL").style.display="none";
         document.getElementById("subcategory").style.display="none";
         document.getElementById("name").style.display="none";
-
     }
 
 }
@@ -214,18 +246,22 @@ window.onload = function hideWorkoutCategories(){
 
 <?php
 $enterType=$_GET['enterType'];
-$exerciseType=$_GET['exerciseType'];
 $cat=$_GET['cat'];
 $subcat=$_GET['subcat'];
 
-echo "<div class = 'row2'>";
-echo "<br> How to Add Exercise: <br>";
+
 ?>
 
 <script> cat_js = "<?php echo $cat; ?>";</script>
-<script> exerciseType = "<?php echo $exerciseType; ?>";</script>
+<script> enterType = "<?php echo $enterType; ?>";</script>
+
+
+
+<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post" autocomplete='on'>
 
 <?php
+echo "<div class = 'row2'>";
+echo "<br> How to Add Exercise: <br>";
 
 echo "<SELECT id=enterType onChange='reload()' name=enterType class='form-control' style='width:210px;'>";
 if($enterType == null){
@@ -245,46 +281,16 @@ else{
 }
 echo "</select>";
 
-if($enterType == "Enter Exercise"){
-    echo "<div>";
-    echo "<br>Exercise Type<br>";
-    echo "<SELECT id=exerciseType onChange='reload3()' name=exerciseType class='form-control' style='width:500px;'>";
-    if($exerciseType == null){
-        echo "<option value='None'>-- Select --</option>";
-    }
-    if($exerciseType == "Cardio"){
-        echo "<option value='Strength'>Strength</option>";
-        echo "<option value='Cardio' selected>Cardio</option>";
-        echo "<option value='Flexibility'>Flexibility</option>";
-    }
-    else if($exerciseType == "Flexibility"){
-        echo "<option value='Strength' >Strength</option>";
-        echo "<option value='Cardio'>Cardio</option>";
-        echo "<option value='Flexibility' selected>Flexibility</option>";
-    }
-    else if($exerciseType == "Strength"){
-        echo "<option value='Strength' selected>Strength</option>";
-        echo "<option value='Cardio'>Cardio</option>";
-        echo "<option value='Flexibility'>Flexibility</option>";
-    }
-    else{
-        echo "<option value='Strength'>Strength</option>";
-        echo "<option value='Cardio'>Cardio</option>";
-        echo "<option value='Flexibility'>Flexibility</option>";
-    }
-    echo "</select>";
-}
 
-if($enterType == "Select Exercise"){
+if($enterType !=null){
     echo "<div class = 'row2'>";
     echo "<br>CATEGORY <br>";
-    //$exerciseType = null;
 
 
     $sql = "SELECT DISTINCT category FROM exercises";
 
     if($result = $mysqli->query($sql)){
-        echo "<SELECT id=category onChange='reload1()' name=category class='form-control' style='width:200px;'>";
+        echo "<SELECT id=category name=category onChange='reload1()' class='form-control' style='width:200px;'>";
         if($cat == null)
         {
         echo "<option value='None'>-- Select --</option>";
@@ -299,12 +305,6 @@ if($enterType == "Select Exercise"){
                 echo "<option value=$row[category]>$row[category]</option>";
             }
         }
-            if($cat == "Enter Cardio Exercise"){
-                echo "<option value='Enter Cardio Exercise' selected>Enter Cardio Exercise</option>";
-            }
-            else{
-                echo "<option value='Enter Cardio Exercise'>Enter Cardio Exercise</option>";
-            }
         echo "</select>";
     }
     else {
@@ -312,12 +312,10 @@ if($enterType == "Select Exercise"){
     }
 }
 
-if($cat != "Enter Cardio Exercise"){
     echo "</div><div class = 'row2'>";
-    if($cat != null){
+    if($cat != null && $enterType=='Select Exercise'){
         echo "<br>SUBCATEGORY<br>";
     }
-    //$cat=$_GET['cat'];
 
 
     $sql2 = "SELECT DISTINCT subcategory FROM exercises where category='$cat'";
@@ -342,13 +340,11 @@ if($cat != "Enter Cardio Exercise"){
     else {
         echo "ERROR: Could not execute $sql2. " . $mysqli->error;
     }
-}
 
 
-if($cat != "Enter Cardio Exercise"){
 
     echo "</div><div class = 'row2'>";
-        if($cat != null){
+        if($cat != null && $enterType=='Select Exercise'){
             echo "<br>EXERCISE NAME<br>";
         }
     //$cat=$_GET['cat'];
@@ -366,14 +362,9 @@ if($cat != "Enter Cardio Exercise"){
     else {
         echo "ERROR: Could not execute $sql3. " . $mysqli->error;
     }
-}
+?>
 
-
-?></div>
-
-
-                
-                    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post" autocomplete='on'>
+</div>
                         <div class="form-group <?php echo (!empty($date_err)) ? 'has-error' : ''; ?>">
                             <label id=dateL>Date</label>
                             <input type="date" id="date" name="date" class="form-control" value="<?php echo $date; ?>">
@@ -414,7 +405,7 @@ if($cat != "Enter Cardio Exercise"){
                             <textarea id="comments" name="comments" cols="10" rows="3" wrap="soft" placeholder = 'Please enter information about how you felt during your workout, the weather, your hydration, etc.' class="form-control" value="<?php echo $comments; ?>" ></textarea>
 			    <span class="help-block"><?php echo $comments_err;?></span>
 			    </div>
-                        <input type="submit" class="btn btn-primary" value="Submit">
+                        <input type="submit" name="submit" class="btn btn-primary" value="Submit">
                         <a href="myLog.php" class="btn btn-default">Cancel</a>
                     </form>
             
@@ -425,4 +416,143 @@ if($cat != "Enter Cardio Exercise"){
     </div>
 </body>
 </html>
+
+<?php
+// Define variables and initialize with empty values
+$date = $exercise = $distance = $time = $comments  = "";
+$date_err = $exercise_err = $distance_err = $time_err = $comments_err= "";
+    
+// Processing form data when form is submitted
+if($_SERVER["REQUEST_METHOD"] == "POST"){
+
+   
+    // Validate date
+    $input_date = trim($_POST["date"]);
+    if(empty($input_date)){
+        $date_err = "Please enter a date.";
+    } else{
+        $date = $input_date;
+    }
+
+    // Validate exercise
+    if($_POST['enterType']=="Select Exercise"){
+        $exercise=$_POST['name'];
+    }
+    else{
+        $input_exercise = trim($_POST["exercise"]);
+        if(empty($input_exercise)){
+            //$exercise_err = "Please enter an exercise.";
+            $exercise_err = "";
+        } else{
+            $exercise = $input_exercise;
+        }
+    }
+
+    
+
+    // Validate distance
+    $input_distance = trim($_POST["distance"]);
+    if(empty($input_distance)){
+        //$distance_err = "Please enter the distance of the exercise.";
+        $distance_err = "";
+    //} elseif(!ctype_digit($input_distance)){
+        $distance_err = "Please enter a distance.";
+    } else{
+        $distance = $input_distance;
+    }
+
+    // Validate sets
+    $input_sets = trim($_POST["sets"]);
+    if(empty($input_sets)){
+        //$time_err = "Please enter the length of time for the exercise.";
+        $sets_err = "";
+    } else{
+        $sets = $input_sets;
+    }
+
+    // Validate repetitions
+    $input_repetitions = trim($_POST["repetitions"]);
+    if(empty($input_repetitions)){
+        //$repetitions_err = "Please enter the length of time for the exercise.";
+        $repetitions_err = "";
+    } else{
+        $repetitions = $input_repetitions;
+    }
+
+    // Validate weight
+    $input_weight = trim($_POST["weight"]);
+    if(empty($input_weight)){
+        //$time_err = "Please enter the length of time for the exercise.";
+        $weight_err = "";
+    } else{
+        $weight = $input_weight;
+    }
+
+   // Validate time
+    $input_time = trim($_POST["time"]);
+    if(empty($input_time)){
+        //$time_err = "Please enter the length of time for the exercise.";
+        $time_err = "";
+    //} elseif(!ctype_digit($input_name)){
+        $time_err = "Please enter a time.";
+    } else{
+        $time = $input_time;
+    }
+
+    // Validate comments
+    $input_comments = trim($_POST["comments"]);
+    if(empty($input_comments)){
+        $comments_err = "Please enter the comments about the exercise.";
+
+    //} elseif(!ctype_digit($input_name)){
+        $comments_err = "Please enter comments.";
+    } else{
+        $comments = $input_comments;
+    }
+    
+
+    // Check input errors before inserting in database
+    //if(empty($date_err) && empty($exercise_err) && empty($distance_err) && empty($time_err) && empty($comments_err)){
+        // Prepare an insert statement
+
+  
+            $sql = "INSERT INTO workoutLog (user, exerciseType, date, exercise, distance, sets, repetitions, weight, time, comments) VALUES ('$user', ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            if($stmt = $mysqli->prepare($sql)){
+                // Bind variables to the prepared statement as parameters
+                $stmt->bind_param("sssssssss", $param_category, $param_date, $param_exercise, $param_distance, $param_sets, $param_repetitions, $param_weight, $param_time, $param_comments);
+
+                // Set parameters
+                $param_user = $user;
+                $param_category = $_POST['category'];
+                $param_date = $date;
+                $param_exercise = $exercise;
+                $param_distance = $distance;
+                $param_time = $time;
+                $param_sets = $sets;
+                $param_repetitions = $repetitions;
+                $param_weight = $weight;
+                $param_comments = $comments;
+
+                // Attempt to execute the prepared statement
+                if($stmt->execute()){
+                    // Records created successfully. Redirect to landing page
+                    header("location: myLog.php");
+                    exit();
+                } else{
+                    echo "Something went wrong. Please try again later.";
+                }
+            }
+
+       
+        // Close statement
+        $stmt->close();
+   
+    // Close connection
+    $mysqli->close();
+}
+
+
+
+
+?> 
 

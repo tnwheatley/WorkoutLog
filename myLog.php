@@ -25,8 +25,9 @@
             margin-right: 15px;
         }
         .wrapper{
-            width: 1000px;
+            width: 1200px;
             margin: 0 auto;
+            border: none;
         }
     </style>
 
@@ -39,35 +40,36 @@
                 <div class="col-md-12"><br><br>
 
                     <?php
+                    echo "<h2>Cardio<h2>";
 
 		if (isset($_GET['erase']))
     		{
       		$erase = sanitizeString($_GET['erase']);
-     		 queryMysql("DELETE FROM cardioLog WHERE id=$erase AND user='$user'");
+     		 queryMysql("DELETE FROM workoutLog WHERE id=$erase AND user='$user'");
     		}
 
                     // Attempt select query execution
-                    $sql = "SELECT * FROM cardioLog where user='$user'";
+                    $sql = "SELECT * FROM workoutLog where user='$user' AND exerciseType='Cardio'";
                     if($result = $mysqli->query($sql)){
                         if($result->num_rows > 0){
                             echo "<table class='table table-bordered table-striped'>";
                                 echo "<thead>";
                                     echo "<tr>";
                                        // echo "<th>user</th>";
-					echo "<th>Date</th>";
+					                    echo "<th>Date</th>";
                                         echo "<th>Exercise</th>";
                                         echo "<th>Distance</th>";
                                         echo "<th>Time (Minutes)</th>";
                                         echo "<th>Comments</th>";
-					echo "<th>Action</th>";
+					                    echo "<th>Action</th>";
                                     echo "</tr>";
                                 echo "</thead>";
                                 echo "<tbody>";
-                                while($row = $result->fetch_array()){
+                    while($row = $result->fetch_array()){
                                     echo "<tr>";
 					//echo "<td>" . $row['name'] . "</td>";
                                         echo "<td>" . date('m/d/Y', strtotime($row['date'])) . "</td>";
- 					echo "<td>" . $row['exercise'] . "</td>";
+ 					                    echo "<td>" . $row['exercise'] . "</td>";
                                         echo "<td>" . $row['distance'] . "</td>";
                                         echo "<td>" . $row['time'] . "</td>";
                                         echo "<td>" . $row['comments'] . "</td>";
@@ -84,12 +86,110 @@
                             echo "</table>";
                             // Free result set
                             $result->free();
-                        } else{
+                        } 
+                        else{
                             echo "<p class='lead'><em>No records were found.</em></p>";
                         }
                     } else{
                         echo "ERROR: Could not able to execute $sql. " . $mysqli->error;
                     }
+
+                    echo "<br><h2>Strength<h2>";
+                     // Attempt select query execution
+                     $sql = "SELECT * FROM workoutLog where user='$user' AND exerciseType='Strength'";
+                     if($result = $mysqli->query($sql)){
+                         if($result->num_rows > 0){
+                             echo "<table class='table table-bordered table-striped'>";
+                                 echo "<thead>";
+                                     echo "<tr>";
+                                        // echo "<th>user</th>";
+                                         echo "<th>Date</th>";
+                                         echo "<th>Exercise</th>";
+                                         echo "<th>Sets</th>";
+                                         echo "<th>Repetitions</th>";
+                                         echo "<th>Weight</th>";
+                                         echo "<th>Comments</th>";
+                                         echo "<th>Action</th>";
+                                     echo "</tr>";
+                                 echo "</thead>";
+                                 echo "<tbody>";
+                     while($row = $result->fetch_array()){
+                                     echo "<tr>";
+                     //echo "<td>" . $row['name'] . "</td>";
+                                         echo "<td>" . date('m/d/Y', strtotime($row['date'])) . "</td>";
+                                          echo "<td>" . $row['exercise'] . "</td>";
+                                         echo "<td>" . $row['sets'] . "</td>";
+                                         echo "<td>" . $row['repetitions'] . "</td>";
+                                         echo "<td>" . $row['weight'] . "</td>";
+                                         echo "<td>" . $row['comments'] . "</td>";
+                                         echo "<td>";
+                                            // echo "<a href='readExercises.php?id=". $row['id'] ."' title='View Record' data-toggle='tooltip'><span class='glyphicon glyphicon-eye-open'></span></a>";
+                                            // echo "<a href='updateExercises.php?id=". $row['id'] ."' title='Update Record' data-toggle='tooltip'><span class='glyphicon glyphicon-pencil'></span></a>";
+                                            // echo "<a href='deleteExercises.php?id=". $row['id'] ."' title='Delete Record' data-toggle='tooltip'><span class='glyphicon glyphicon-trash'></span></a>";
+ 
+                           echo "<a href='myLog.php?view=$view" . "&erase=" . $row['id'] . "' title='Delete Record' data-toggle='tooltip'><i class='bi bi-trash-fill'></i></a>";
+                                         echo "</td>";
+                                     echo "</tr>";
+                                 }
+                                 echo "</tbody>";
+                             echo "</table>";
+                             // Free result set
+                             $result->free();
+                         } 
+                         else{
+                             echo "<p class='lead'><em>No records were found.</em></p>";
+                         }
+                     } else{
+                         echo "ERROR: Could not able to execute $sql. " . $mysqli->error;
+                     }
+
+                     echo "<br><h2>Flexibility<h2>";
+                     // Attempt select query execution
+                     $sql = "SELECT * FROM workoutLog where user='$user' AND exerciseType='Flexibility'";
+                     if($result = $mysqli->query($sql)){
+                         if($result->num_rows > 0){
+                             echo "<table class='table table-bordered table-striped'>";
+                                 echo "<thead>";
+                                     echo "<tr>";
+                                        // echo "<th>user</th>";
+                                         echo "<th>Date</th>";
+                                         echo "<th>Exercise</th>";
+                                         echo "<th>Sets</th>";
+                                         echo "<th>Time (Minutes)</th>";
+                                         echo "<th>Comments</th>";
+                                         echo "<th>Action</th>";
+                                     echo "</tr>";
+                                 echo "</thead>";
+                                 echo "<tbody>";
+                     while($row = $result->fetch_array()){
+                                     echo "<tr>";
+                     //echo "<td>" . $row['name'] . "</td>";
+                                         echo "<td>" . date('m/d/Y', strtotime($row['date'])) . "</td>";
+                                          echo "<td>" . $row['exercise'] . "</td>";
+                                         echo "<td>" . $row['sets'] . "</td>";
+                                         echo "<td>" . $row['time'] . "</td>";
+                                         echo "<td>" . $row['comments'] . "</td>";
+                                         echo "<td>";
+                                            // echo "<a href='readExercises.php?id=". $row['id'] ."' title='View Record' data-toggle='tooltip'><span class='glyphicon glyphicon-eye-open'></span></a>";
+                                            // echo "<a href='updateExercises.php?id=". $row['id'] ."' title='Update Record' data-toggle='tooltip'><span class='glyphicon glyphicon-pencil'></span></a>";
+                                            // echo "<a href='deleteExercises.php?id=". $row['id'] ."' title='Delete Record' data-toggle='tooltip'><span class='glyphicon glyphicon-trash'></span></a>";
+ 
+                           echo "<a href='myLog.php?view=$view" . "&erase=" . $row['id'] . "' title='Delete Record' data-toggle='tooltip'><i class='bi bi-trash-fill'></i></a>";
+                                         echo "</td>";
+                                     echo "</tr>";
+                                 }
+                                 echo "</tbody>";
+                             echo "</table>";
+                             // Free result set
+                             $result->free();
+                         } 
+                         else{
+                             echo "<p class='lead'><em>No records were found.</em></p>";
+                         }
+                     } else{
+                         echo "ERROR: Could not able to execute $sql. " . $mysqli->error;
+                     }
+ 
 
 
                     // Close connection
@@ -97,7 +197,7 @@
 
                     ?>
 		    	<div class="wrapperCenter">
-		    		<br><a href="createCardioLog.php" class="btn btn-info">Add Workout</a>
+		    		<br><a href="strengthLog.php" class="btn btn-info">Add Workout</a>
 		    	</div>
                     </div>
                 </div>
