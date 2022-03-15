@@ -4,6 +4,7 @@ session_start();
 require_once 'functions.php';
 
 $userstr = ' (Guest)';
+$userRole = "guest";
 
   if (isset($_SESSION['user']))
   {
@@ -13,8 +14,36 @@ $userstr = ' (Guest)';
   }
   else $loggedin = FALSE;
 
-//if($loggedin){echo "<br><br><br><br><br>",$userstr;}
-//else{echo "<br><br><br><br><br>not working";}
+  if($loggedin){
+
+    $result = queryMySQL("SELECT * FROM members WHERE user='$user'");
+
+    if ($result->num_rows > 0)
+    {
+      $row = $result->fetch_array(MYSQLI_NUM);
+
+        $result->close();
+
+        $userRole = $row[6];
+    }
+  }
+
+/*
+    $sql = "SELECT * FROM members where user='$user'";
+    if($result = $mysqli->query($sql)){
+        if($result->num_rows > 0){
+          //$row = $result->fetch_array(MYSQLI_NUM);
+          //$userRole = $row[6];
+        }
+        else{
+          //$userRole = "error";
+        }
+      }
+  }
+
+echo "<br><br><br><br> $userRole";
+*/
+
 
 echo <<<_Begin1
   <html lang ="en">
@@ -49,6 +78,31 @@ _Begin1;
         </li>
         _loggedOut;
         }
+  else if($loggedin && $userRole=='user'){
+    echo <<<_loggedIn
+        <li class="nav-item">
+          <a class="nav-link" href="index.php">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="messages.php">Messages</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="members.php">All Members</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="friends.php">Friends</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="profile.php">Edit Profile</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="myLog.php">My Log</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="logout.php">Log out</a>
+        </li>
+        _loggedIn;
+  }
 	else{
 	  echo <<<_loggedIn
         <li class="nav-item">
@@ -71,6 +125,9 @@ _Begin1;
         </li>
         <li class="nav-item">
           <a class="nav-link" href="workouts.php">Workouts</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="updateRoles.php">Member Roles</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="logout.php">Log out</a>

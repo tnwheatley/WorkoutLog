@@ -69,7 +69,7 @@ else if($param_category == 'flexibility'){
                                 echo "<tbody>";
                                 while($row = $result->fetch_array()){
                                     echo "<tr>";
-					echo "<td>" . $row['id'] . "</td>";
+					                    echo "<td>" . $row['id'] . "</td>";
                                         echo "<td>" . $row['category'] . "</td>";
                                         echo "<td>" . $row['subcategory'] . "</td>";
                                         echo "<td>" . $row['name'] . "</td>";

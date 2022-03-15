@@ -37,7 +37,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="page-header clearfix">
-                        <h2 class="pull-left"><br>Exercise Details<br></h2>
+                        <h2 class="pull-left"><br>Users<br></h2>
                     </div>
 		</div>
 	  </div>
@@ -45,32 +45,32 @@
 
 <?php
                     // Attempt select query execution
-                    $sql = "SELECT * FROM exercises";
+                    $sql = "SELECT * FROM members WHERE user != '$user'";
                     if($result = $mysqli->query($sql)){
                         if($result->num_rows > 0){
                             echo "<br><table class='table table-bordered table-striped table-hover'>";
                                 echo "<thead>";
                                     echo "<tr>";
-                                         echo "<th>#</th>";
-					echo "<th>Category</th>";
-                                        echo "<th>Subcategory</th>";
-                                        echo "<th>Exercise Name</th>";
-                                        echo "<th>Information</th>";
-                                        echo "<th>Action</th>";
+                                        echo "<th>First Name</th>";
+					                    echo "<th>Last Name</th>";
+                                        echo "<th>Email Address</th>";
+                                        echo "<th>Gender</th>";
+                                        echo "<th>Username</th>";
+                                        echo "<th>Role</th>";
                                     echo "</tr>";
                                 echo "</thead>";
                                 echo "<tbody>";
                                 while($row = $result->fetch_array()){
                                     echo "<tr>";
-					                    echo "<td>" . $row['id'] . "</td>";
-                                        echo "<td>" . $row['category'] . "</td>";
-                                        echo "<td>" . $row['subcategory'] . "</td>";
-                                        echo "<td>" . $row['name'] . "</td>";
-                                        echo "<td>" . $row['information'] . "</td>";
+					                    echo "<td>" . $row['firstName'] . "</td>";
+                                        echo "<td>" . $row['lastName'] . "</td>";
+                                        echo "<td>" . $row['email'] . "</td>";
+                                        echo "<td>" . $row['gender'] . "</td>";
+                                        echo "<td>" . $row['user'] . "</td>";
+                                        echo "<td>" . $row['role'] . "</td>";
                                         echo "<td>";
-                                            echo "<a href='readExercises.php?id=". $row['id'] ."' title='View Record' data-toggle='tooltip'><i class='bi bi-eye-fill'></i></a>";
-                                            echo "<a href='updateExercises.php?id=". $row['id'] ."' title='Update Record' data-toggle='tooltip'><i class='bi bi-pencil-fill'></i></a>";
-                                            echo "<a href='deleteExercises.php?id=". $row['id'] ."' title='Delete Record' data-toggle='tooltip'><i class='bi bi-trash-fill'></i></a>";
+                                            echo "<a href='updateUser.php?modifiedUser=". $row['user'] ."' title='Update Record' data-toggle='tooltip'><i class='bi bi-pencil-fill'></i></a>";
+                                            echo "<a href='deleteUser.php?modifieduser=". $row['user'] ."' title='Delete Record' data-toggle='tooltip'><i class='bi bi-trash-fill'></i></a>";
                                         echo "</td>";
                                     echo "</tr>";
                                 }
@@ -90,15 +90,6 @@
                     $mysqli->close();
 ?>
 
-	<a href="createExercises.php" class="btn btn-primary pull-right">Add New Exercise</a><br><br><br><br>
-	<form action="filterExercises.php" method="get">
-                <title>Static Dropdown List</title>
-                <select name = "value">
-                  <option value="cardio">Cardio</option>
-                  <option value="strength">Strength</option>
-                  <option value="flexibility">Flexibility</option>
-		<input type='submit' class="btn btn-outline-secondary" value =" filter "/>
-                </select>
     </div>
 </body>
 </html>

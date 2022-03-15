@@ -19,7 +19,11 @@
 
 
   createTable('members',
-              'user VARCHAR(16) NOT NULL UNIQUE,
+              'firstName VARCHAR(255) NOT NULL,
+               lastName VARCHAR(255) NOT NULL,
+               email VARCHAR(255) NOT NULL,
+               gender VARCHAR(255) NOT NULL,
+               user VARCHAR(16) NOT NULL UNIQUE,
                pass VARCHAR(255) NOT NULL,
 	             role VARCHAR(16),
                salt VARCHAR(255),

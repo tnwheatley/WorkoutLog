@@ -73,8 +73,8 @@ if(isset($_POST["id"]) && !empty($_POST["id"])){
             $param_category = $category;
             $param_subcategory = $subcategory;
             $param_name = $name;
-	    $param_info = $info;
-	    $param_id = $id;
+	        $param_info = $info;
+	        $param_id = $id;
 
             // Attempt to execute the prepared statement
             if($stmt->execute()){

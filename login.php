@@ -56,11 +56,11 @@ _header;
 
         $result->close();
 
-        $salt = $row[3];
+        $salt = $row[7];
 
         $salted = $salt.$pass;
         
-	if(password_verify($salted,$row[1])){
+	if(password_verify($salted,$row[5])){
         session_start();
 	      $_SESSION['user'] = $user;
         $_SESSION['pass'] = $pass;

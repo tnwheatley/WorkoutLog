@@ -13,7 +13,7 @@
     <style>
       
         .row2 {
-            display: inline-block;
+            display: inline-blockS;
             padding: 5px;
             font-size:16px;
         }
