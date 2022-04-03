@@ -1,3 +1,15 @@
+<!--
+=========================================================
+* Material Kit 2 PRO - v3.0.1
+=========================================================
+
+* Product Page:  https://www.creative-tim.com/product/material-kit-pro 
+* Copyright 2022 Creative Tim (https://www.creative-tim.com)
+* Coded by www.creative-tim.com
+
+ =========================================================
+
+* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software. -->
 <?php
  require_once 'config.php';
  require_once 'header.php';
@@ -114,81 +126,117 @@ $mysqli->close();
 }
 ?>
 
-
 <!DOCTYPE html>
-<html lang="en">
-     <header class="pageHeader gradient">
-                <div class = "container-fluid">
-                  <div class="row">
-                    <div class = "col-sm-3 ">
-                        <h4></h4>
-		    </div></div></div>
-		<script defer src ="script.js"></script>
-      </header>
+<html lang="en" itemscope itemtype="http://schema.org/WebPage">
 
 <head>
-    <meta charset="UTF-8">
-    <style type="text/css">
-        .wrapper{
-            width: 600px;
-            margin: 0 auto;
-        }
-    </style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="apple-touch-icon" sizes="76x76" href="assets/img/apple-icon.png">
+  <link rel="icon" type="image/png" href="assets/img/favicon.png">
+  <title>
+    Material Kit 2 PRO by Creative Tim
+  </title>
+  <!--     Fonts and icons     -->
+  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900|Roboto+Slab:400,700" />
+  <!-- Nucleo Icons -->
+  <link href="assets/css/nucleo-icons.css" rel="stylesheet" />
+  <link href="assets/css/nucleo-svg.css" rel="stylesheet" />
+  <!-- Font Awesome Icons -->
+  <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
+  <!-- Material Icons -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+  <!-- CSS Files -->
+  <link id="pagestyle" href="assets/css/material-kit-pro.css" rel="stylesheet" />
 </head>
 
-
-<body>
-    <div class="wrapper">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="page-header">
-                        <h2></h2>
-                    </div>
-                    <h4><br>Please fill out the form to sign up for a new account.</h4><br>
-                    <div id="error"></div>
-                   <form id="form" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
-                   <div class="form-group <?php echo (!empty($firstName_err)) ? 'has-error' : ''; ?>">
-                            <label for='firstName'>First Name</label>
-                            <input type="text" id="firstName" name="firstName" class="form-control" value="<?php echo $firstName; ?>">
-			                <span style="color:red" class="help-block"><?php echo $firstName_err;?></span>
-                        </div>
-                        <div class="form-group <?php echo (!empty($lastName_err)) ? 'has-error' : ''; ?>">
-                            <br><label for='lastName'>Last Name</label>
-                            <input type="text" id="lastName" name="lastName" class="form-control" value="<?php echo $lastName; ?>">
-			                <span style="color:red" class="help-block"><?php echo $lastName_err;?></span>
-                        </div>
-                        <div class="form-group <?php echo (!empty($email_err)) ? 'has-error' : ''; ?>">
-                            <br><label for='email'>Email</label>
-                            <input type="text" id="email" name="email" class="form-control" value="<?php echo $email; ?>">
-			                <span style="color:red" class="help-block"><?php echo $email_err;?></span>
-                        </div>
-                            <br><label for='gender'>Gender</label>                           
-                            <SELECT id=gender name=gender class='form-control' style='width:200px;' value="<?php echo $gender; ?>">
-                            <option value='None'>-- Select --</option>
-                            <option value='Male'>Male</option>
-                            <option value='Female'>Female</option>
-                            <option value='Non Binary'>Non Binary</option>
-                            <option value='Prefer not to say'>Prefer not to say</option>
-                            </SELECT>
-                      <div class="form-group <?php echo (!empty($user_err)) ? 'has-error' : ''; ?>">
-                            <br><label for='username'>Username</label>
-                            <input type="text" id="username" name="user" class="form-control" value="<?php echo $user; ?>">
-			                <span style="color:red" class="help-block"><?php echo $user_err;?></span>
-                        </div>
-                        <div class="form-group <?php echo (!empty($pass_err)) ? 'has-error' : ''; ?>">
-                            <br><label for="password">Password</label>
-                            <input type="text" id = "password" name="pass" class="form-control" value="<?php echo $pass; ?>">
-			                <span style="color:red" class="help-block"><?php echo $pass_err;?></span>
-                        </div><br>
-                        <input type="submit" class="btn btn-primary" value="Create Account">
-                        <a href="index.php" class="btn btn-default">Cancel</a>
-                    </form>
-                </div>
+<body class="sign-in-basic">
+  
+  <!-- End Navbar -->
+  <!-- End Navbar -->
+  <div class="page-header align-items-start min-vh-100" style="background-image: url('https://images.unsplash.com/photo-1557330359-ffb0deed6163?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mzl8fGV4ZXJjaXNlfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60');" loading="lazy">
+    <span class="mask bg-gradient-dark opacity-6"></span>
+    <div class="container my-auto">
+      <div class="row">
+        <div class="col-lg-4 col-md-8 col-12 mx-auto">
+          <div class="card z-index-0">
+            <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
+              <div class="bg-gradient-primary shadow-primary border-radius-lg py-3 pe-1">
+                <h4 class="text-white font-weight-bolder text-center mt-2 mb-0">Register for an account.</h4>
+              </div>
             </div>
+            <div class="card-body">
+              <div id="error"></div>
+                   <form id="form" role="form" class="text-start" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+                   <div class="form-group <?php echo (!empty($firstName_err)) ? 'has-error' : ''; ?>">
+                        <div class="input-group input-group-outline my-3">
+                            <label class="form-label" for='firstName'>First Name</label>
+                            <input type="text" id="firstName" name="firstName" class="form-control" value="<?php echo $firstName; ?>">
+                            <span style="color:red" class="help-block"><?php echo $firstName_err;?></span>
+                        </div>
+                    </div>
+                    <div class="form-group <?php echo (!empty($lastName_err)) ? 'has-error' : ''; ?>">
+                        <div class="input-group input-group-outline my-3">
+                            <label class="form-label" for='lastName'>Last Name</label>
+                            <input type="text" id="lastName" name="lastName" class="form-control" value="<?php echo $lastName; ?>">
+                            <span style="color:red" class="help-block"><?php echo $lastName_err;?></span>
+                        </div>
+                    </div>
+                    <div class="form-group <?php echo (!empty($email_err)) ? 'has-error' : ''; ?>">
+                        <div class="input-group input-group-outline my-3">
+                            <label class="form-label" for='email'>Email</label>
+                            <input type="email" id="email" name="email" class="form-control" value="<?php echo $email; ?>">
+                            <span style="color:red" class="help-block"><?php echo $email_err;?></span>
+                        </div>    
+                    </div>
+                    <div class="input-group input-group-outline my-3">                          
+                        <SELECT id=gender name=gender class='form-control' style='width:200px;' value="<?php echo $gender; ?>">
+                        <option value='None'>--Select Gender--</option>
+                        <option value='Male'>Male</option>
+                        <option value='Female'>Female</option>
+                        <option value='Non Binary'>Non Binary</option>
+                        <option value='Prefer not to say'>Prefer not to say</option>
+                        </SELECT>
+                    </div>
+                    <div class="form-group <?php echo (!empty($user_err)) ? 'has-error' : ''; ?>">
+                        <div class="input-group input-group-outline my-3">                          
+                            <label class="form-label" for='username'>Username</label>
+                            <input type="text" id="username" name="user" class="form-control" value="<?php echo $user; ?>">
+                            <span style="color:red" class="help-block"><?php echo $user_err;?></span>
+                        </div>
+                    </div>
+                    <div class="form-group <?php echo (!empty($pass_err)) ? 'has-error' : ''; ?>">
+                        <div class="input-group input-group-outline my-3">                          
+                            <label class="form-label" for="password">Password</label>
+                            <input type="text" id = "password" name="pass" class="form-control" value="<?php echo $pass; ?>">
+                            <span style="color:red" class="help-block"><?php echo $pass_err;?></span>
+                        </div>
+                    </div><br>
+                    <input type="submit" class="btn bg-gradient-primary w-100 my-4 mb-2 btn-primary:hover" value="Create Account">
+                    <p class="text-sm mt-3 mb-0">Already have an account? <a href="login.php" class="text-dark font-weight-bolder">Sign in</a></p>
+                  </form>
+            </div>
+          </div>
         </div>
+      </div>
     </div>
+  </div>
+  <!--   Core JS Files   -->
+  <script src="assets/js/core/popper.min.js" type="text/javascript"></script>
+  <script src="assets/js/core/bootstrap.min.js" type="text/javascript"></script>
+  <script src="assets/js/plugins/perfect-scrollbar.min.js"></script>
+  <!--  Plugin for TypedJS, full documentation here: https://github.com/mattboldt/typed.js/ -->
+  <script src="assets/js/plugins/typedjs.js"></script>
+  <!--  Plugin for Parallax, full documentation here: https://github.com/wagerfield/parallax  -->
+  <script src="assets/js/plugins/parallax.min.js"></script>
+  <!--  Plugin for the Sliders, full documentation here: http://refreshless.com/nouislider/ -->
+  <script src="assets/js/plugins/nouislider.min.js" type="text/javascript"></script>
+  <!--  Plugin for the blob animation -->
+  <script src="assets/js/plugins/anime.min.js" type="text/javascript"></script>
+  <!-- Control Center for Material UI Kit: parallax effects, scripts for the example pages etc -->
+  <!--  Google Maps Plugin    -->
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDTTfWur0PDbZWPr7Pmq8K3jiDp0_xUziI"></script>
+  <script src="assets/js/material-kit-pro.min.js?v=3.0.1" type="text/javascript"></script>
 </body>
+
 </html>
-
-

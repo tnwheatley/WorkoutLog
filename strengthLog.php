@@ -7,9 +7,26 @@
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
-<html>
- <head>
+<html lang="en" itemscope itemtype="http://schema.org/WebPage">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+ 
+  <title>
+    Motivate: Fitness Tracker
+  </title>
+  <!--     Fonts and icons     -->
+  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900|Roboto+Slab:400,700" />
+  <!-- Nucleo Icons -->
+  <link href="assets/css/nucleo-icons.css" rel="stylesheet" />
+  <link href="assets/css/nucleo-svg.css" rel="stylesheet" />
+  <!-- Font Awesome Icons -->
+  <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
+  <!-- Material Icons -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+  <!-- CSS Files -->
+  <link id="pagestyle" href="assets/css/material-kit-pro.css" rel="stylesheet" />
+
     <style>
       
         .row2 {
@@ -19,16 +36,10 @@
         }
 
     </style>
-  <title>PHP Test</title>
-  
- </head>
 
+ </head>
  <body>
- <header class="pageHeader gradient">
-                <div class = "container-fluid">
-                  <div class="row">
-                  <div class = "col-sm-3 ">
- </header>
+ 
 
  <script type="text/javascript">
 function reload(){
@@ -233,16 +244,12 @@ window.onload = function hideWorkoutCategories(){
 
 }
 
+
+
 </script>
 
-<div class="wrapper">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="page-header">
-                        <h2><br><br>Create New Workout Record</h2>
-                    </div>
-                    <p>Please fill out this form and submit to add new workout to your log.</p>
+
+
 
 <?php
 $enterType=$_GET['enterType'];
@@ -252,12 +259,26 @@ $subcat=$_GET['subcat'];
 
 ?>
 
+
 <script> cat_js = "<?php echo $cat; ?>";</script>
 <script> enterType = "<?php echo $enterType; ?>";</script>
 
 
 
 <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post" autocomplete='on'>
+
+<div class="page-header align-items-start min-vh-100" style="background-image: url('https://images.unsplash.com/photo-1611674929309-30a2c9be2f2b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTYzfHxydW5uaW5nfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60');" loading="lazy">
+    <span class="mask bg-gradient-dark opacity-6"></span>
+    <div class="container my-auto">
+      <div class="row">
+        <div class="col-lg-4 col-md-8 col-12 mx-auto">
+          <div class="card z-index-0">
+            <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
+              <div class="bg-gradient-primary shadow-primary border-radius-lg py-3 pe-1">
+                <h4 class="text-white font-weight-bolder text-center mt-2 mb-0">Create New Workout Record</h4>
+              </div>
+            </div>
+
 
 <?php
 echo "<div class = 'row2'>";
@@ -365,55 +386,67 @@ if($enterType !=null){
 ?>
 
 </div>
+
+
+            <div class="card-body">
                         <div class="form-group <?php echo (!empty($date_err)) ? 'has-error' : ''; ?>">
                             <label id=dateL>Date</label>
                             <input type="date" id="date" name="date" class="form-control" value="<?php echo $date; ?>">
                             <span class="help-block"><?php echo $date_err;?></span>
                         </div>
                         <div class="form-group <?php echo (!empty($exercise_err)) ? 'has-error' : ''; ?>">
-                            <label id="exerciseL">Exercise</label>
+                        <div class="input-group input-group-dynamic mb-4">
+                            <label class="form-label" id="exerciseL">Exercise</label>
                             <input type="text" id = "exercise" name="exercise" class="form-control" value="<?php echo $exercise; ?>">
                             <span class="help-block"><?php echo $exercise_err;?></span>
                         </div>
+                        </div>
 			            <div class="form-group <?php echo (!empty($distance_err)) ? 'has-error' : ''; ?>">
-                            <label id="distanceL">Distance</label>
+                        <div class="input-group input-group-dynamic mb-4">
+                            <label class="form-label" id="distanceL">Distance</label>
                             <input type="text" id="distance" name="distance" class="form-control" value="<?php echo $distance; ?>">
                             <span class="help-block"><?php echo $distance_err;?></span>
-                        </div>
+                        </div></div>
                         <div class="form-group <?php echo (!empty($time_err)) ? 'has-error' : ''; ?>">
-                            <label id="timeL">Time (Minutes)</label>
+                            <div class="input-group input-group-dynamic mb-4">
+                            <label class="form-label" id="timeL">Time (Minutes)</label>
                             <input type="number" id="time" name="time" class="form-control" value="<?php echo $time; ?>">
                             <span class="help-block"><?php echo $time_err;?></span>
-                        </div>
+                        </div></div>
                         <div class="form-group <?php echo (!empty($sets_err)) ? 'has-error' : ''; ?>">
-                            <label id="setsL"># of Sets</label>
+                            <div class="input-group input-group-dynamic mb-4">
+                            <label class="form-label" id="setsL"># of Sets</label>
                             <input type="text" id="sets" name="sets" class="form-control" value="<?php echo $sets; ?>">
                             <span class="help-block"><?php echo $sets_err;?></span>
-                        </div>
+                        </div><div>
                         <div class="form-group <?php echo (!empty($sets_err)) ? 'has-error' : ''; ?>">
-                            <label id="repetitionsL">Repetitions per Set</label>
+                            <div class="input-group input-group-dynamic mb-4">
+                            <label class="form-label" id="repetitionsL">Repetitions per Set</label>
                             <input type="text" id="repetitions" name="repetitions" class="form-control" value="<?php echo $repetitions; ?>">
                             <span class="help-block"><?php echo $repetitions_err;?></span>
-                        </div>
+                        </div><div>
                         <div class="form-group <?php echo (!empty($sets_err)) ? 'has-error' : ''; ?>">
-                            <label id="weightL">Weight (lbs)</label>
+                            <div class="input-group input-group-dynamic mb-4">    
+                           <label class="form-label" id="weightL">Weight (lbs)</label>
                             <input type="text" id="weight" name="weight" class="form-control" value="<?php echo $weight; ?>">
                             <span class="help-block"><?php echo $weight_err;?></span>
-                        </div>
+                        </div><div>
 			            <div class="form-group <?php echo (!empty($comments_err)) ? 'has-error' : ''; ?>">
-                            <label id="commentsL">Comments</label>
+                            <label class="form-label" id="commentsL">Comments</label>
+                            <div class="input-group input-group-outline mb-4">
                             <textarea id="comments" name="comments" cols="10" rows="3" wrap="soft" placeholder = 'Please enter information about how you felt during your workout, the weather, your hydration, etc.' class="form-control" value="<?php echo $comments; ?>" ></textarea>
-			    <span class="help-block"><?php echo $comments_err;?></span>
-			    </div>
+			                <span class="help-block"><?php echo $comments_err;?></span>
+			            </div></div>
                         <input type="submit" name="submit" class="btn btn-primary" value="Submit">
                         <a href="myLog.php" class="btn btn-default">Cancel</a>
+                    
                     </form>
-            
-
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+   
 </body>
 </html>
 

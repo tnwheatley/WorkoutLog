@@ -18,7 +18,7 @@ h3{
 }
 
 .pageHeader{
-	margin-top: .6in;
+	margin-top: 0in;
 	margin-bottom: 0in;
 	font-size:48pt;
 	color: #fff;
@@ -31,7 +31,7 @@ h3{
         max-width: 100%;
 }
 .col-sm-3{
-	margin-top: .5in;
+	margin-top: 0in;
 }
 
 .col-md-12{
@@ -63,7 +63,7 @@ h3{
     }
 
 .homeImageMain{      
-      width: 10F00px;
+      width: 1000px;
       top: 0;
       right: 0;
       left: 0;
