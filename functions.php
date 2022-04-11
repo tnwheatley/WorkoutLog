@@ -6,7 +6,12 @@
   $appname = "Motivate: Fitness Tracker"; // ...and preference
 
   $connection = new mysqli($dbhost, $dbuser, $dbpass, $dbname);
-  if ($connection->connect_error) die($connection->connect_error);
+  if ($connection->connect_error) 
+  {
+    //die($connection->connect_error);
+    header("location:error-500.php");
+    exit();
+  }
 
   function createTable($name, $query)
   {
@@ -28,8 +33,9 @@
 
     if (session_id() != "" || isset($_COOKIE[session_name()]))
       setcookie(session_name(), '', time()-2592000, '/');
-
+    
     session_destroy();
+    
   }
 
   function sanitizeString($var)

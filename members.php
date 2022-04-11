@@ -6,43 +6,6 @@
 
 <!DOCTYPE html>
 <html lang ="en">
-  <head>
-   <meta charset = "UTF-8" />
-    <meta name = "viewport" content"width=device-width, initial-scale=1.0"/>
-    <title> Motivate: Fitness Tracker</title>
-   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous"> 
-   <link rel="stylesheet" href="styles.css" />
-  </head>
-
-  <header class="gradient">
-                <div class = "container-fluid">
-                  <div class="row">
-                    <div class = "col-sm-3 ">
-                        <h4>  </h4>
-                    </div></div>
-      </header><br>
-
-<head>
- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
-        <style type="text/css">
-            .table-hover tbody tr:hover td {
-                background-color: darkblue;
-                color: white;
-                }
-        table tr td:last-child a{
-            margin-right: 15px;
-        }
-        .wrapper{
-            width: 1000px;
-            margin: 0 auto;
-        }
-    </style>
-
-</head>
-
-
-
-
 
 
 <?php
@@ -82,7 +45,17 @@
   $result = queryMysql("SELECT user FROM members ORDER BY user");
   $num    = $result->num_rows;
 
-  echo "<h3>Other Members</h3><ul>";
+  //echo "<h3>Other Members</h3><ul>";
+
+  echo"<section class='py-5 bg-gray-100'>";
+  echo"<div class='container'>";
+  echo"<div class='row'>";
+  echo"<div class='col-md-7 mx-auto text-center mb-5'>";
+  echo"<h1>Other Members</h1>";
+  echo "</div>";
+  echo "</div>";
+
+ echo'<div class="row">';
 
   for ($j = 0 ; $j < $num ; ++$j)
   {
@@ -98,28 +71,32 @@
     $sqlImg = queryMysql("SELECT * FROM profileimg WHERE user='$currentMember'");
 
 
-    echo "<div class = 'user-container'>";
+    //echo "<div class = 'user-container'>";
+
+    echo'<div class="col-lg-4 col-md-6">';
+    echo'<div class="card card-profile mt-md-0 mt-5">';
+    echo'<div class="card-header mt-n4 mx-3 p-0 bg-transparent position-relative z-index-2">';
+    echo'<a class="d-block blur-shadow-image">';
 
         $rowImg = $sqlImg->fetch_array(MYSQLI_NUM);
 
         $sqlImg->close();
 
         if($rowImg[1] == 0){
-                echo '<img src="uploads/profile' . $rowImg[0] . '.' . $rowImg[2] . '?' . mt_rand() . '" width="100" height="100">';
+                echo '<img src="uploads/profile' . $rowImg[0] . '.' . $rowImg[2] . '?' . mt_rand() . '" width="375" height="350" alt="img-blur-shadow" class="border-radius-lg"></a>';
         }
         else{
-                echo "<img src= 'uploads/UserProfileDefaultImage.png' width='100' height='100'>";
+                echo "<img src= 'uploads/UserProfileDefaultImage.png' width='375' height='350' class='border-radius-lg'></a>";
         }
         //echo "<p>".$user."</p>";
 
     echo "</div>";
+    echo'<div class="card-body text-center">';
 
 
 
-
-
-    echo "<li><a data-transition='slide' href='members.php?view=" .
-      $row['user'] . "'>" . $row['user'] . "</a>";
+    echo "<h4 class='mb-0'><a data-transition='slide' href='members.php?view=" .
+      $row['user'] . "'>" . $row['user'] . "</a></h4><br>";
     $friend = "friend";
 
     $result1 = queryMysql("SELECT * FROM friends WHERE
@@ -129,15 +106,20 @@
       user='$user' AND friend='" . $row['user'] . "'");
     $t2      = $result1->num_rows;
 
-    if (($t1 + $t2) > 1) echo " &harr; is a mutual friend";
-    elseif ($t1)         echo " &larr; friend request sent";
-    elseif ($t2)       { echo " &rarr; has sent you a friend request";
+    if (($t1 + $t2) > 1) echo " is a mutual friend<br>";
+    elseif ($t1)         echo " friend request sent<br>";
+    elseif ($t2)       { echo " has sent you a friend request<br>";
                          $friend = "confirm"; }
 
     if (!$t1) echo " [<a data-transition='slide'
       href='members.php?add=" . $row['user'] . "'>$friend</a>]";
     else      echo " [<a data-transition='slide'
       href='members.php?remove=" . $row['user'] . "'>remove friend</a>]";
+
+      echo "</div>";
+      echo "</div>";
+      echo "</div>";
+  
   }
 ?>
     </ul></div>

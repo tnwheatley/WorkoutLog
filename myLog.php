@@ -46,9 +46,12 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-12"><br><br>
+                </div>
+		</div>
+	  </div>
 
-                    <?php
-                    echo "<h2>Cardio<h2>";
+<?php
+    echo "<h2>Cardio</h2>";
 
 		if (isset($_GET['erase']))
     		{
@@ -60,7 +63,7 @@
                     $sql = "SELECT * FROM workoutLog where user='$user' AND exerciseType='Cardio'";
                     if($result = $mysqli->query($sql)){
                         if($result->num_rows > 0){
-                            echo "<table class='table table-bordered table-striped'>";
+                            echo "<table class='table table-bordered table-striped table-hover'>";
                                 echo "<thead>";
                                     echo "<tr>";
                                        // echo "<th>user</th>";
@@ -102,12 +105,12 @@
                         echo "ERROR: Could not able to execute $sql. " . $mysqli->error;
                     }
 
-                    echo "<br><h2>Strength<h2>";
+                    echo "<br><h2>Strength</h2>";
                      // Attempt select query execution
                      $sql = "SELECT * FROM workoutLog where user='$user' AND exerciseType='Strength'";
                      if($result = $mysqli->query($sql)){
                          if($result->num_rows > 0){
-                             echo "<table class='table table-bordered table-striped'>";
+                             echo "<table class='table table-bordered table-striped table-hover'>";
                                  echo "<thead>";
                                      echo "<tr>";
                                         // echo "<th>user</th>";
@@ -151,12 +154,12 @@
                          echo "ERROR: Could not able to execute $sql. " . $mysqli->error;
                      }
 
-                     echo "<br><h2>Flexibility<h2>";
+                     echo "<br><h2>Flexibility</h2>";
                      // Attempt select query execution
                      $sql = "SELECT * FROM workoutLog where user='$user' AND exerciseType='Flexibility'";
                      if($result = $mysqli->query($sql)){
                          if($result->num_rows > 0){
-                             echo "<table class='table table-bordered table-striped'>";
+                             echo "<table class='table table-bordered table-striped table-hover'>";
                                  echo "<thead>";
                                      echo "<tr>";
                                         // echo "<th>user</th>";

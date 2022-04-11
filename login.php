@@ -28,8 +28,7 @@
 
      if ($result->num_rows == 0)
      {
-       $error = "<span class='error'>Username/Password
-                 invalid</span><br><br>";
+       $error = "<span class='error'>Invalid username or password.  Please try again.</span><br><br>";
      }
      else
      {
@@ -51,7 +50,7 @@
        //    "click here</a> to proceed to your workout log.<br><br>");
    }
    else{
-     $error = "<span class='error'>Not Logged in
+     $error = "<span class='error'>Invalid username or password.  Please try again.
        </span><br><br>";
    }
      }

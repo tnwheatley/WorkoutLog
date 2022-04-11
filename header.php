@@ -81,7 +81,7 @@ echo <<<_Begin1
       <ul class="navbar-nav">
 _Begin1;
 
-	if(!$loggedin){
+	if(!$loggedin || $logout){
 	echo <<<_loggedOut
         <li class="nav-item">
           <a class="nav-link" href="index.php">Home</a>

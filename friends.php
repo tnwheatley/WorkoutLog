@@ -6,41 +6,7 @@
 
 <!DOCTYPE html>
 <html lang ="en">
-  <head>
-   <meta charset = "UTF-8" />
-    <meta name = "viewport" content"width=device-width, initial-scale=1.0"/>
-    <title> Motivate: Fitness Tracker</title>
-   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous"> 
-   <link rel="stylesheet" href="styles.css" />
-  </head>
-
-  <header class="gradient">
-                <div class = "container-fluid">
-                  <div class="row">
-                    <div class = "col-sm-3 ">
-                        <h4>  </h4>
-                    </div></div>
-      </header><br>
-
-<head>
- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
-        <style type="text/css">
-            .table-hover tbody tr:hover td {
-                background-color: darkblue;
-                color: white;
-                }
-        table tr td:last-child a{
-            margin-right: 15px;
-        }
-        .wrapper{
-            width: 1000px;
-            margin: 0 auto;
-        }
-    </style>
-<link rel="stylesheet" href="styles.css">
-</head>
-
-
+ 
 
 <?php
 
@@ -96,108 +62,178 @@
 
   if (sizeof($mutual))
   {
-    echo "<div class = 'user-container'>";
-    echo "<span class='subhead'>Mutual Friends</span><ul>";
+    //echo "<div class = 'user-container'>";
+    //echo "<span class='subhead'>Mutual Friends</span><ul>";
+    
+    echo"<section class='py-5 bg-gray-100'>";
+    echo"<div class='container'>";
+    echo"<div class='row'>";
+    echo"<div class='col-md-7 mx-auto text-center mb-5'>";
+    echo"<h3>Mutual Friends</h3>";
+    //echo"<p>This is the paragraph where you can write more details about your team. Keep you user engaged by providing meaningful information.</p>";
+    echo "</div>";
     echo "</div>";
    //echo "<span class='subhead'>Mutual Friends</span><ul>";
+
+   echo'<div class="row">';
+
+
     foreach($mutual as $friend)
+    {
+    echo'<div class="col-lg-4 col-md-6">';
+    echo'<div class="card card-profile mt-md-0 mt-5">';
+    echo'<div class="card-header mt-n4 mx-3 p-0 bg-transparent position-relative z-index-2">';
+    echo'<a class="d-block blur-shadow-image">';
 
     $sqlImg = queryMysql("SELECT * FROM profileimg WHERE user='$friend'");
 
-    echo "<div class = 'user-container2'>";
+    //echo "<div class = 'user-container2'>";
 
         $rowImg = $sqlImg->fetch_array(MYSQLI_NUM);
 
         $sqlImg->close();
 
         if($rowImg[1] == 0){
-                echo '<img src="uploads/profile' . $rowImg[0] . '.' . $rowImg[2] . '?' . mt_rand() . '" width="100" height="100">';
+                echo '<img src="uploads/profile' . $rowImg[0] . '.' . $rowImg[2] . '?' . mt_rand() . '" width="375" height="350" alt="img-blur-shadow" class="border-radius-lg"></a>';
         }
         else{
-                echo "<img src= 'uploads/UserProfileDefaultImage.png' width='100' height='100'>";
+                echo "<img src= 'uploads/UserProfileDefaultImage.png' width='375' height='350' class='border-radius-lg'></a>";
         }
 
     echo "</div>";
+    echo'<div class="card-body text-center">';
 
-      echo "<li><a href='members.php?view=$friend'>$friend<br></a>";
-    echo "</ul>";
+
+    echo "<h4 class='mb-0'><a href='members.php?view=$friend'>$friend</a></h4>";
+    echo "</div>";
+    echo "</div>";
+    echo "</div>";
+
 
     $friends = TRUE;
-    echo "<div class = 'empty-container'>";
+    }
     echo "</div>";
+    echo "</div>";
+
   }
+
 
 
 
 
   if (sizeof($followers))
   {
-    echo "<div class = 'user-container'>";
-    echo "<br><span class='subhead'>Friend Requests</span><ul>";
+    echo"<section class='py-5 bg-gray-100'>";
+    echo"<div class='container'>";
+    echo"<div class='row'>";
+    echo"<div class='col-md-7 mx-auto text-center mb-5'>";
+    echo"<h3>Friend Requests</h3>";
+    //echo"<p>This is the paragraph where you can write more details about your team. Keep you user engaged by providing meaningful information.</p>";
     echo "</div>";
-    foreach($followers as $friend)
+    echo "</div>";
+
+    echo'<div class="row">';
+
+    foreach($followers as $friend){
+
+    echo'<div class="col-lg-4 col-md-6">';
+    echo'<div class="card card-profile mt-md-0 mt-5">';
+    echo'<div class="card-header mt-n4 mx-3 p-0 bg-transparent position-relative z-index-2">';
+    echo'<a class="d-block blur-shadow-image">';
 
     $sqlImg = queryMysql("SELECT * FROM profileimg WHERE user='$friend'");
 
-    echo "<div class = 'user-container'>";
+    //echo "<div class = 'user-container2'>";
 
         $rowImg = $sqlImg->fetch_array(MYSQLI_NUM);
 
         $sqlImg->close();
 
         if($rowImg[1] == 0){
-                echo '<img src="uploads/profile' . $rowImg[0] . '.' . $rowImg[2] . '?' . mt_rand() . '" width="100" height="100">';
+                echo '<img src="uploads/profile' . $rowImg[0] . '.' . $rowImg[2] . '?' . mt_rand() . '" width="375" height="350" alt="img-blur-shadow" class="border-radius-lg"></a>';
         }
         else{
-                echo "<img src= 'uploads/UserProfileDefaultImage.png' width='100' height='100'>";
+                echo "<img src= 'uploads/UserProfileDefaultImage.png' width='375' height='350' class='border-radius-lg'></a>";
         }
 
     echo "</div>";
+    echo'<div class="card-body text-center">';
 
-      echo "<li><a href='members.php?view=$friend'>$friend</a>";
-    echo "</ul>";
-    $friends = TRUE;
-    echo "<div class = 'empty-container'>";
+
+    echo "<h4 class='mb-0'><a href='members.php?view=$friend'>$friend</a></h4>";
     echo "</div>";
+    echo "</div>";
+    echo "</div>";
+
+
+    $friends = TRUE;
+    }
+    echo "</div>";
+    echo "</div>";   
   }
-  
+
 
   
   if (sizeof($following))
   {
-    echo "<div class = 'user-container'>";
-    echo "<br><span class='subhead'>Sent Requests </span><br><ul>";
+    //echo "<div class = 'user-container'>";
+    //echo "<br><span class='subhead'>Sent Requests </span><br><ul>";
+    //echo "</div>";
+
+    echo"<section class='py-5 bg-gray-100'>";
+    echo"<div class='container'>";
+    echo"<div class='row'>";
+    echo"<div class='col-md-7 mx-auto text-center mb-5'>";
+    echo"<h3>Sent Requests</h3>";
+    //echo"<p>This is the paragraph where you can write more details about your team. Keep you user engaged by providing meaningful information.</p>";
     echo "</div>";
+    echo "</div>";
+
+
+    echo'<div class="row">';
+
 
     foreach($following as $friend)
 {
 
+    echo'<div class="col-lg-4 col-md-6">';
+    echo'<div class="card card-profile mt-md-0 mt-5">';
+    echo'<div class="card-header mt-n4 mx-3 p-0 bg-transparent position-relative z-index-2">';
+    echo'<a class="d-block blur-shadow-image">';
 
     $sqlImg = queryMysql("SELECT * FROM profileimg WHERE user='$friend'");
 
-    echo "<div class = 'user-container2'>";
+    //echo "<div class = 'user-container2'>";
 
         $rowImg = $sqlImg->fetch_array(MYSQLI_NUM);
 
         $sqlImg->close();
 
         if($rowImg[1] == 0){
-                echo '<img src="uploads/profile' . $rowImg[0] . '.' . $rowImg[2] . '?' . mt_rand() . '" width="100" height="100">';
+                echo '<img src="uploads/profile' . $rowImg[0] . '.' . $rowImg[2] . '?' . mt_rand() . '" width="375" height="350" alt="img-blur-shadow" class="border-radius-lg"></a>';
         }
         else{
-                echo "<img src= 'uploads/UserProfileDefaultImage.png' width='100' height='100'>";
+                echo "<img src= 'uploads/UserProfileDefaultImage.png' width='375' height='350' class='border-radius-lg'></a>";
         }
 
     echo "</div>";
+    echo'<div class="card-body text-center">';
 
 
-    echo "<li><a href='members.php?view=$friend'>$friend</a>";
-    echo "</ul>";
-    $friends = TRUE;
-    echo "<div class = 'empty-container'>";
+    echo "<h4 class='mb-0'><a href='members.php?view=$friend'>$friend</a></h4>";
     echo "</div>";
+    echo "</div>";
+    echo "</div>";
+
+
+    $friends = TRUE;
   }
+  echo "</div>";
+  echo "</div>";
+    
+
 }
+
 
 
   if (!$friends) echo "<br>You don't have any friends yet.<br><br>";

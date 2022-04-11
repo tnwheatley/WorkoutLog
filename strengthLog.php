@@ -39,7 +39,6 @@
 
  </head>
  <body>
- 
 
  <script type="text/javascript">
 function reload(){
@@ -146,9 +145,11 @@ window.onload = function hideWorkoutCategories(){
     }
     else if(enterType == "Select Exercise"){
         document.getElementById("category").style.display="block";
-        document.getElementById("subcategory").style.display="block";
-        document.getElementById("name").style.display="block";
+        document.getElementById("subcategory").style.display="none";
+        document.getElementById("name").style.display="none";
         if(cat_js == "Cardio"){
+            document.getElementById("subcategory").style.display="block";
+            document.getElementById("name").style.display="block";
             document.getElementById("date").style.display="block";
             document.getElementById("dateL").style.display="block";
             document.getElementById("exercise").style.display="none";
@@ -167,6 +168,8 @@ window.onload = function hideWorkoutCategories(){
             document.getElementById("commentsL").style.display="block";
         }
         else if(cat_js == "Strength"){
+            document.getElementById("subcategory").style.display="block";
+            document.getElementById("name").style.display="block";
             document.getElementById("date").style.display="block";
             document.getElementById("dateL").style.display="block";
             document.getElementById("exercise").style.display="none";
@@ -185,6 +188,8 @@ window.onload = function hideWorkoutCategories(){
             document.getElementById("commentsL").style.display="block";
             }
         else if(cat_js == "Flexibility"){
+            document.getElementById("subcategory").style.display="block";
+            document.getElementById("name").style.display="block";
             document.getElementById("date").style.display="block";
             document.getElementById("dateL").style.display="block";
             document.getElementById("exercise").style.display="none";
@@ -267,9 +272,9 @@ $subcat=$_GET['subcat'];
 
 <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post" autocomplete='on'>
 
-<div class="page-header align-items-start min-vh-100" style="background-image: url('https://images.unsplash.com/photo-1611674929309-30a2c9be2f2b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTYzfHxydW5uaW5nfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60');" loading="lazy">
+<div class="page-header align-items-start min-vh-100" style="background-image: url('https://images.unsplash.com/photo-1597076545399-91a3ff0e71b3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTIwfHx3b3Jrb3V0fGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60');" loading="lazy">
     <span class="mask bg-gradient-dark opacity-6"></span>
-    <div class="container my-auto">
+    <div class="container my-auto"><br><br>
       <div class="row">
         <div class="col-lg-4 col-md-8 col-12 mx-auto">
           <div class="card z-index-0">
@@ -391,44 +396,44 @@ if($enterType !=null){
             <div class="card-body">
                         <div class="form-group <?php echo (!empty($date_err)) ? 'has-error' : ''; ?>">
                             <label id=dateL>Date</label>
+                            <div class="input-group input-group-dynamic mb-4">
                             <input type="date" id="date" name="date" class="form-control" value="<?php echo $date; ?>">
                             <span class="help-block"><?php echo $date_err;?></span>
-                        </div>
+                        </div></div><br>
                         <div class="form-group <?php echo (!empty($exercise_err)) ? 'has-error' : ''; ?>">
-                        <div class="input-group input-group-dynamic mb-4">
-                            <label class="form-label" id="exerciseL">Exercise</label>
-                            <input type="text" id = "exercise" name="exercise" class="form-control" value="<?php echo $exercise; ?>">
+                            <label id="exerciseL">Exercise</label>
+                            <div class="input-group input-group-dynamic mb-4">
+                            <input type="text" id = "exercise" name="exercise" placeholder="Exercise" class="form-control" value="<?php echo $exercise; ?>">
                             <span class="help-block"><?php echo $exercise_err;?></span>
-                        </div>
-                        </div>
+                        </div></div>
 			            <div class="form-group <?php echo (!empty($distance_err)) ? 'has-error' : ''; ?>">
-                        <div class="input-group input-group-dynamic mb-4">
-                            <label class="form-label" id="distanceL">Distance</label>
-                            <input type="text" id="distance" name="distance" class="form-control" value="<?php echo $distance; ?>">
+                            <label id="distanceL">Distance</label>
+                            <div class="input-group input-group-dynamic mb-4">
+                            <input type="text" id="distance" name="distance" placeholder="Distance" class="form-control" value="<?php echo $distance; ?>">
                             <span class="help-block"><?php echo $distance_err;?></span>
                         </div></div>
                         <div class="form-group <?php echo (!empty($time_err)) ? 'has-error' : ''; ?>">
+                            <label id="timeL">Time (Minutes)</label>
                             <div class="input-group input-group-dynamic mb-4">
-                            <label class="form-label" id="timeL">Time (Minutes)</label>
-                            <input type="number" id="time" name="time" class="form-control" value="<?php echo $time; ?>">
+                            <input type="number" id="time" name="time" placeholder="Time (Minutes)" class="form-control" value="<?php echo $time; ?>">
                             <span class="help-block"><?php echo $time_err;?></span>
                         </div></div>
                         <div class="form-group <?php echo (!empty($sets_err)) ? 'has-error' : ''; ?>">
+                            <label id="setsL"># of Sets</label>
                             <div class="input-group input-group-dynamic mb-4">
-                            <label class="form-label" id="setsL"># of Sets</label>
-                            <input type="text" id="sets" name="sets" class="form-control" value="<?php echo $sets; ?>">
+                            <input type="text" id="sets" name="sets" placeholder="# of Sets" class="form-control" value="<?php echo $sets; ?>">
                             <span class="help-block"><?php echo $sets_err;?></span>
                         </div><div>
                         <div class="form-group <?php echo (!empty($sets_err)) ? 'has-error' : ''; ?>">
+                            <label id="repetitionsL">Repetitions per Set</label>
                             <div class="input-group input-group-dynamic mb-4">
-                            <label class="form-label" id="repetitionsL">Repetitions per Set</label>
-                            <input type="text" id="repetitions" name="repetitions" class="form-control" value="<?php echo $repetitions; ?>">
+                            <input type="text" id="repetitions" name="repetitions" placeholder="Repetitions per Set" class="form-control" value="<?php echo $repetitions; ?>">
                             <span class="help-block"><?php echo $repetitions_err;?></span>
                         </div><div>
                         <div class="form-group <?php echo (!empty($sets_err)) ? 'has-error' : ''; ?>">
-                            <div class="input-group input-group-dynamic mb-4">    
-                           <label class="form-label" id="weightL">Weight (lbs)</label>
-                            <input type="text" id="weight" name="weight" class="form-control" value="<?php echo $weight; ?>">
+                           <label id="weightL">Weight (lbs)</label>
+                           <div class="input-group input-group-dynamic mb-4">    
+                            <input type="text" id="weight" name="weight" placeholder="Weight (lbs)" class="form-control" value="<?php echo $weight; ?>">
                             <span class="help-block"><?php echo $weight_err;?></span>
                         </div><div>
 			            <div class="form-group <?php echo (!empty($comments_err)) ? 'has-error' : ''; ?>">
@@ -568,7 +573,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
                 // Attempt to execute the prepared statement
                 if($stmt->execute()){
-                    // Records created successfully. Redirect to landing page
+                    // Workout created successfully. Redirect to landing page
                     header("location: myLog.php");
                     exit();
                 } else{

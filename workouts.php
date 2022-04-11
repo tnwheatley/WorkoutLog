@@ -60,7 +60,7 @@
                                 echo "<thead>";
                                     echo "<tr>";
                                          echo "<th>#</th>";
-					echo "<th>Category</th>";
+					                    echo "<th>Category</th>";
                                         echo "<th>Subcategory</th>";
                                         echo "<th>Exercise Name</th>";
                                         echo "<th>Information</th>";
