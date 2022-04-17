@@ -11,8 +11,11 @@
 <?php
  // require_once 'header.php';
 
-  if (!$loggedin) die("</div></body></html>");
-
+ if (!$loggedin) {
+  header("location:index.php");
+  exit();
+  }
+  
   if (isset($_GET['view']))
   {
     $view = sanitizeString($_GET['view']);
@@ -47,7 +50,7 @@
 
   //echo "<h3>Other Members</h3><ul>";
 
-  echo"<section class='py-5 bg-gray-100'>";
+  echo"<section class='py-5'>";
   echo"<div class='container'>";
   echo"<div class='row'>";
   echo"<div class='col-md-7 mx-auto text-center mb-5'>";
@@ -74,8 +77,8 @@
     //echo "<div class = 'user-container'>";
 
     echo'<div class="col-lg-4 col-md-6">';
-    echo'<div class="card card-profile mt-md-0 mt-5">';
-    echo'<div class="card-header mt-n4 mx-3 p-0 bg-transparent position-relative z-index-2">';
+    echo'<div class="card card-profile mt-md-0 mt-5 bg-info">';
+    echo'<div class="card-header mt-n4 mx-3 p-0 bg-transparent position-relative z-index-2 ">';
     echo'<a class="d-block blur-shadow-image">';
 
         $rowImg = $sqlImg->fetch_array(MYSQLI_NUM);
@@ -91,11 +94,11 @@
         //echo "<p>".$user."</p>";
 
     echo "</div>";
-    echo'<div class="card-body text-center">';
+    echo'<div class="card-body text-center text-white">';
 
 
 
-    echo "<h4 class='mb-0'><a data-transition='slide' href='members.php?view=" .
+    echo "<h4 class='mb-0'><a class='text-white' data-transition='slide' href='members.php?view=" .
       $row['user'] . "'>" . $row['user'] . "</a></h4><br>";
     $friend = "friend";
 
@@ -111,9 +114,9 @@
     elseif ($t2)       { echo " has sent you a friend request<br>";
                          $friend = "confirm"; }
 
-    if (!$t1) echo " [<a data-transition='slide'
+    if (!$t1) echo " [<a class='text-white' data-transition='slide'
       href='members.php?add=" . $row['user'] . "'>$friend</a>]";
-    else      echo " [<a data-transition='slide'
+    else      echo " [<a class='text-white' data-transition='slide'
       href='members.php?remove=" . $row['user'] . "'>remove friend</a>]";
 
       echo "</div>";

@@ -45,7 +45,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="page-header clearfix">
-                        <h2 class="pull-left"><br>Exercise Details<br></h2>
+                        <h2 class="pull-left"><br><b>Exercise Details</b><br></h2>
                     </div>
 		</div>
 	  </div>

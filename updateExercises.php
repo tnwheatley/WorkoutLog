@@ -24,7 +24,10 @@
       </header><br>
 
 <?php
-
+  if (!$loggedin) {
+    header("location:index.php");
+    exit();
+  }
 // Define variables and initialize with empty values
 $category = $subcategory = $name = $info = "";
 $category_err = $subcategory_err = $name_err = $info_err = "";

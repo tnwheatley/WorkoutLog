@@ -41,7 +41,11 @@
 </head>
 
 <?php
-  if (!$loggedin) die();
+
+if (!$loggedin) {
+  header("location:index.php");
+  exit();
+}
 
   if (isset($_GET['view'])) $view = sanitizeString($_GET['view']);
   else                      $view = $user;

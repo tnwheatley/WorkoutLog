@@ -10318,6 +10318,10 @@ fieldset:disabled .btn {
   background-color: transparent !important;
 }
 
+.bg-blue {
+  background-color: #80bbf7 !important;
+}
+
 .bg-gray-100 {
   background-color: #f8f9fa !important;
 }

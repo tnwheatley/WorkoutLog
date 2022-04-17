@@ -10,7 +10,10 @@
 
 <?php
 
-  if (!$loggedin) die();
+  if (!$loggedin) {
+    header("location:index.php");
+    exit();
+  }
 
   if (isset($_GET['view'])) $view = sanitizeString($_GET['view']);
   else                      $view = $user;
@@ -69,11 +72,9 @@
     echo"<div class='container'>";
     echo"<div class='row'>";
     echo"<div class='col-md-7 mx-auto text-center mb-5'>";
-    echo"<h3>Mutual Friends</h3>";
-    //echo"<p>This is the paragraph where you can write more details about your team. Keep you user engaged by providing meaningful information.</p>";
+    echo"<h2 class='text-info'>Mutual Friends</h2>";
     echo "</div>";
     echo "</div>";
-   //echo "<span class='subhead'>Mutual Friends</span><ul>";
 
    echo'<div class="row">';
 
@@ -81,7 +82,7 @@
     foreach($mutual as $friend)
     {
     echo'<div class="col-lg-4 col-md-6">';
-    echo'<div class="card card-profile mt-md-0 mt-5">';
+    echo'<div class="card card-profile mt-md-0 mt-5 bg-info">';
     echo'<div class="card-header mt-n4 mx-3 p-0 bg-transparent position-relative z-index-2">';
     echo'<a class="d-block blur-shadow-image">';
 
@@ -104,7 +105,7 @@
     echo'<div class="card-body text-center">';
 
 
-    echo "<h4 class='mb-0'><a href='members.php?view=$friend'>$friend</a></h4>";
+    echo "<h4 class='mb-0'><a class='text-white' href='members.php?view=$friend'>$friend</a></h4>";
     echo "</div>";
     echo "</div>";
     echo "</div>";
@@ -123,12 +124,11 @@
 
   if (sizeof($followers))
   {
-    echo"<section class='py-5 bg-gray-100'>";
+    echo"<section class='py-5'>";
     echo"<div class='container'>";
     echo"<div class='row'>";
     echo"<div class='col-md-7 mx-auto text-center mb-5'>";
-    echo"<h3>Friend Requests</h3>";
-    //echo"<p>This is the paragraph where you can write more details about your team. Keep you user engaged by providing meaningful information.</p>";
+    echo"<h2 class='text-secondary'>Friend Requests</h2>";
     echo "</div>";
     echo "</div>";
 
@@ -137,7 +137,7 @@
     foreach($followers as $friend){
 
     echo'<div class="col-lg-4 col-md-6">';
-    echo'<div class="card card-profile mt-md-0 mt-5">';
+    echo'<div class="card card-profile mt-md-0 mt-5 bg-secondary">';
     echo'<div class="card-header mt-n4 mx-3 p-0 bg-transparent position-relative z-index-2">';
     echo'<a class="d-block blur-shadow-image">';
 
@@ -160,7 +160,7 @@
     echo'<div class="card-body text-center">';
 
 
-    echo "<h4 class='mb-0'><a href='members.php?view=$friend'>$friend</a></h4>";
+    echo "<h4 class='mb-0'><a class='text-white' href='members.php?view=$friend'>$friend</a></h4>";
     echo "</div>";
     echo "</div>";
     echo "</div>";
@@ -184,7 +184,7 @@
     echo"<div class='container'>";
     echo"<div class='row'>";
     echo"<div class='col-md-7 mx-auto text-center mb-5'>";
-    echo"<h3>Sent Requests</h3>";
+    echo"<h2 class='text-success'>Sent Requests</h2>";
     //echo"<p>This is the paragraph where you can write more details about your team. Keep you user engaged by providing meaningful information.</p>";
     echo "</div>";
     echo "</div>";
@@ -197,7 +197,7 @@
 {
 
     echo'<div class="col-lg-4 col-md-6">';
-    echo'<div class="card card-profile mt-md-0 mt-5">';
+    echo'<div class="card card-profile mt-md-0 mt-5 bg-success">';
     echo'<div class="card-header mt-n4 mx-3 p-0 bg-transparent position-relative z-index-2">';
     echo'<a class="d-block blur-shadow-image">';
 
@@ -220,7 +220,7 @@
     echo'<div class="card-body text-center">';
 
 
-    echo "<h4 class='mb-0'><a href='members.php?view=$friend'>$friend</a></h4>";
+    echo "<h4 class='mb-0'><a class='text-white' href='members.php?view=$friend'>$friend</a></h4>";
     echo "</div>";
     echo "</div>";
     echo "</div>";

@@ -51,6 +51,10 @@
 	  </div>
 
 <?php
+    if (!$loggedin) {
+    header("location:index.php");
+    exit();
+  }
     echo "<h2>Cardio</h2>";
 
 		if (isset($_GET['erase']))

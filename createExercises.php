@@ -1,4 +1,9 @@
 <?php
+    if (!$loggedin) {
+        header("location:index.php");
+        exit();
+    }
+
 // Include config file
 require_once "config.php";
 

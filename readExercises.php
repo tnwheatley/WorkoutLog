@@ -42,6 +42,10 @@
 			</div>
 
 <?php
+  if (!$loggedin) {
+    header("location:index.php");
+    exit();
+  }
 // Check existence of id parameter before processing further
 if(isset($_GET["id"]) && !empty(trim($_GET["id"]))){
     // Include config file

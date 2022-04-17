@@ -24,6 +24,8 @@
 
 <?php
 
+if($loggedin && $userRole=='admin'){
+
 // Define variables and initialize with empty values
 $firstName = $lastName = $email = $gender = $role = "";
 $firstName_err = $lastName_err = $email_err = $gender_err = $role_err = "";
@@ -208,3 +210,12 @@ if(isset($_POST["modifiedUser"]) && !empty($_POST["modifiedUser"])){
     </div>
 </body>
 </html>
+
+
+<?php
+}
+else{
+    header("location:error-403.php");
+    exit();
+}
+?>
