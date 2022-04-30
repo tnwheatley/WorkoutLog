@@ -1,14 +1,16 @@
 
 <?php
-if (!$loggedin) {
-    header("location:index.php");
-    exit();
-  }
-  
       // Include config file
       require_once "config.php";
       require_once "header.php";
-//require_once 'header.php';
+
+    if (!$loggedin) {
+        header("location:index.php");
+        exit();
+    }
+      
+
+      
 ?>
 
 <!DOCTYPE html>
@@ -266,6 +268,32 @@ $enterType=$_GET['enterType'];
 $cat=$_GET['cat'];
 $subcat=$_GET['subcat'];
 
+$sql0 = "SELECT * from exercises";
+$result0 = $mysqli->query($sql0);
+$datas = array();
+if (mysqli_num_rows($result0) > 0){
+    while($row = mysqli_fetch_assoc($result0)){
+        $datas[] = $row;
+    }
+}
+
+$categoryDatas = array($data[0]);
+
+foreach ($datas as $data){
+    $same = 0;
+    foreach($categoryDatas as $categoryData){
+        if(strcmp($data[category],$categoryData[category])==0){
+            $same = 1;
+            break;
+        }
+    }
+        if($same==0)
+        {
+            array_push($categoryDatas, $data);
+        }
+
+}
+
 
 ?>
 
@@ -318,30 +346,45 @@ if($enterType !=null){
     echo "<br>CATEGORY <br>";
 
 
-    $sql = "SELECT DISTINCT category FROM exercises";
-
-    if($result = $mysqli->query($sql)){
+   
         echo "<SELECT id=category name=category onChange='reload1()' class='form-control' style='width:200px;'>";
         if($cat == null)
         {
         echo "<option value='None'>-- Select --</option>";
         }
-
-        while($row = $result->fetch_assoc()){
-            echo $row[0];
-            if($row[category]==$cat){
-                echo "<option value=$row[category] selected>$row[category]</option>";
-            }
-            else{
-                echo "<option value=$row[category]>$row[category]</option>";
+        foreach ($categoryDatas as $categoryData){
+            if($categoryData[category]!=""){
+                    if($categoryData[category]==$cat){
+                        echo "<option value=$categoryData[category] selected>$categoryData[category]</option>";
+                    }
+                else{
+                    echo "<option value=$categoryData[category]>$categoryData[category]</option>";
+                }
             }
         }
         echo "</select>";
     }
-    else {
-        echo "ERROR: Could not execute $sql. " . $mysqli->error;
+
+    $subcatDatas = array($categoryData[0]);
+    foreach ($datas as $data){
+        $same = 0;
+        if(strcmp($data[category],$cat)==0){
+            foreach($subcatDatas as $subcatData){
+                if(strcmp($data[subcategory],$subcatData[subcategory])==0){
+                    $same = 1;
+                    break;
+                }
+            }
+            if($same==0)
+            {
+                array_push($subcatDatas, $data);
+            }
+        }
     }
-}
+    
+          
+
+    
 
     echo "</div><div class = 'row2'>";
     if($cat != null && $enterType=='Select Exercise'){
@@ -349,50 +392,60 @@ if($enterType !=null){
     }
 
 
-    $sql2 = "SELECT DISTINCT subcategory FROM exercises where category='$cat'";
-
-    if($result2 = $mysqli->query($sql2)){
         echo "<SELECT id=subcategory onChange='reload2()' name=subcategory class='form-control' style='width:150px;'>";
         if($subcat == null)
         {
             echo "<option value='None'>-- Select --</option>";
         }
-        while($row = $result2->fetch_assoc()){
-            echo $row[0];
-            if($row[subcategory]==$subcat){
-            echo "<option value=$row[subcategory] selected>$row[subcategory]</option>";
-            }
-            else{
-                echo "<option value=$row[subcategory]>$row[subcategory]</option>";
+        foreach ($subcatDatas as $subcatData){
+            if($subcatData[subcategory]!=""){
+                if($subcatData[subcategory]==$subcat){
+                echo "<option value=$subcatData[subcategory] selected>$subcatData[subcategory]</option>";
+                }
+                else{
+                    echo "<option value=$subcatData[subcategory]>$subcatData[subcategory]</option>";
+                }
             }
         }
         echo "</select>";
-    }
-    else {
-        echo "ERROR: Could not execute $sql2. " . $mysqli->error;
-    }
 
 
+
+        $nameDatas = array($subcatData[0]);
+        foreach ($datas as $data){
+            $same = 0;
+            if(strcmp($data[category],$cat)==0){
+                if(strcmp($data[subcategory],$subcat)==0){
+                    foreach($nameDatas as $nameData){
+                        if(strcmp($subcatData[name],$nameData[name])==0){
+                            $same = 1;
+                            break;
+                        }
+                    }
+                        if($same==0)
+                        {
+                            array_push($nameDatas, $data);
+                        }
+                }
+            }
+        }
 
     echo "</div><div class = 'row2'>";
         if($cat != null && $enterType=='Select Exercise'){
             echo "<br>EXERCISE NAME<br>";
         }
-    //$cat=$_GET['cat'];
-    $sql3 = "SELECT DISTINCT name FROM exercises where category='$cat' AND subcategory='$subcat'";
 
-    if($result3 = $mysqli->query($sql3)){
+    
         echo "<SELECT id=name name=name class='form-control' style='width:150px;'>";
         echo "<option value='None'>-- Select --</option>";
-        while($row = $result3->fetch_assoc()){
-            echo $row[0];
-                echo "<option value=$row[name]>$row[name]</option>";
+        foreach ($nameDatas as $nameData){
+            if($nameData[name]!=""){
+                   
+                echo "<option value=$nameData[name]>$nameData[name]</option>";
+            }
         }
-        echo "</select>";
-    }
-    else {
-        echo "ERROR: Could not execute $sql3. " . $mysqli->error;
-    }
+            echo "</select>";
+
 ?>
 
 </div>
@@ -581,7 +634,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                     // Workout created successfully. Redirect to landing page
                     header("location: myLog.php");
                     exit();
-                } else{
+                } 
+                else{
                     echo "Something went wrong. Please try again later.";
                 }
             }

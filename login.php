@@ -13,6 +13,7 @@
 <?php
  require_once 'header.php';
 
+
  $error = $user = $pass = "";
 
  if (isset($_POST['user']))
@@ -20,10 +21,16 @@
    $user = sanitizeString($_POST['user']);
    $pass = sanitizeString($_POST['pass']);
 
-   if ($user == "" || $pass == "")
+   if ($user == "" || $pass == ""){
        $error = "Not all fields were entered<br>";
+   }
    else
    {
+     ?>
+      <script type="text/javascript">
+        document.getElementById("button-sent").disabled = false; 
+       </script>
+  <?php
      $result = queryMySQL("SELECT * FROM members WHERE user='$user'");
 
      if ($result->num_rows == 0)
@@ -98,20 +105,21 @@
               </div>
             </div>
             <div class="card-body">
-                <form method='post' action='login.php'><?php echo $error; ?>
-                    <span class='fieldname'>Username </span>
+                <form style="color:red" method='post' action='login.php'><?php echo $error; ?>
+                    <span style="color:black" class='fieldname'>Username </span>
                     <input type='text' maxlength='16' name='user' value="<?php echo $user ?>"><br><br>
-                    <span class='fieldname'>Password </span><input type='password'
-                    maxlength='16' name='pass' value="<?php echo $pass ?>"><br>
+                    <span style="color:black" class='fieldname'>Password </span>
+                    <input type='password' maxlength='16' name='pass' value="<?php echo $pass ?>"><br>
                     <span class='fieldname'>&nbsp;</span>
-                    <input type='submit' class="btn bg-gradient-primary w-100 my-4 mb-2 btn-primary:hover" value='Login'>
-                    <p class="text-sm mt-3 mb-0">Don't have an account? <a href="signup.php" class="text-dark font-weight-bolder">Register</a></p>
+                    <input type='submit' id='button-sent' class="btn bg-gradient-primary w-100 my-4 mb-2 btn-primary:hover" value='Login' >
+                    <p style="color:black" class="text-sm mt-3 mb-0">Don't have an account? <a href="signup.php" class="text-dark font-weight-bolder">Register</a></p>
                 </form>
             </div>
           </div>
         </div>
       </div>
     </div>
+    
   <!--   Core JS Files   -->
   <script src="assets/js/core/popper.min.js" type="text/javascript"></script>
   <script src="assets/js/core/bootstrap.min.js" type="text/javascript"></script>

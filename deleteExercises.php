@@ -1,4 +1,8 @@
 <?php
+    // Include config file
+    require_once "config.php";
+    require_once "header.php";
+
     if (!$loggedin) {
         header("location:index.php");
         exit();
@@ -47,11 +51,10 @@ if(isset($_POST["id"]) && !empty($_POST["id"])){
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>View Record</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
+    <br><br><title>Delete Record</title>
     <style type="text/css">
         .wrapper{
-            width: 500px;
+            width: 600px;
             margin: 0 auto;
         }
     </style>
@@ -63,14 +66,14 @@ if(isset($_POST["id"]) && !empty($_POST["id"])){
                 <div class="col-md-12">
                     <div class="page-header">
                         <h1>Delete Record</h1>
-                    </div>
+                    </div><hr><br>
                     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
-                        <div class="alert alert-danger fade in">
+                        <div class="alert alert-danger">
                             <input type="hidden" name="id" value="<?php echo trim($_GET["id"]); ?>"/>
-                            <p>Are you sure you want to delete this record?</p><br>
+                            <p style="font-size:24px; color:white;"><b>Are you sure you want to delete this record?<b></p><br>
                             <p>
-                                <input type="submit" value="Yes" class="btn btn-danger">
-                                <a href="workouts.php" class="btn btn-default">No</a>
+                                <input type="submit" value="Yes" class="btn bg-gradient-info">
+                                <a href="workouts.php" class="btn bg-gradient-secondary">No</a>
                             </p>
                         </div>
                     </form>

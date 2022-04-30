@@ -48,10 +48,7 @@
   </head>
   <body>
 <?php
-    if (!$loggedin) {
-      header("location:index.php");
-      exit();
-    }
+
 
   $result = queryMysql("SELECT * FROM members WHERE user='$user'");
   $row = $result->fetch_array(MYSQLI_NUM);

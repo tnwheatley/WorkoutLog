@@ -1,11 +1,15 @@
 <?php
-    if (!$loggedin) {
-        header("location:index.php");
-        exit();
-    }
+
 
 // Include config file
 require_once "config.php";
+require_once "header.php";
+
+
+if (!$loggedin) {
+    header("location:index.php");
+    exit();
+}
 
 // Define variables and initialize with empty values
 $category = $subcategory = $name = $info = "";

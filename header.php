@@ -1,3 +1,38 @@
+
+<!DOCTYPE html>
+<html lang="en" itemscope itemtype="http://schema.org/WebPage">
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>
+      Motivate: Fitness Tracker
+    </title>
+    <!--     Fonts and icons     -->
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900|Roboto+Slab:400,700" />
+    <!-- Nucleo Icons -->
+    <link href="assets/css/nucleo-icons.css" rel="stylesheet" />
+    <link href="assets/css/nucleo-svg.css" rel="stylesheet" />
+    <!-- Font Awesome Icons -->
+    <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
+    <!-- Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+    <!-- CSS Files -->
+    <link id="pagestyle" href="assets/css/material-kit-pro.css" rel="stylesheet" />
+  </head>
+  <body>
+  <!-- Navbar Dark -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-white z-index-3 py-3">
+    <div class="container-fluid">
+      <b><a style="font-size:24px; color:blue;" class="navbar-brand navbar-brand:hover" href="" rel="tooltip" title="Designed and Coded by Creative Tim" data-placement="bottom" target="_blank">
+        Motivate: Fitness Tracker
+      </a></b>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+      <ul class="navbar-nav">
+
 <?php
 
 session_start();
@@ -44,45 +79,8 @@ $userRole = "guest";
 echo "<br><br><br><br> $userRole";
 */
 
-
-echo <<<_Begin1
-<!DOCTYPE html>
-<html lang="en" itemscope itemtype="http://schema.org/WebPage">
-
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>
-      Motivate: Fitness Tracker
-    </title>
-    <!--     Fonts and icons     -->
-    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900|Roboto+Slab:400,700" />
-    <!-- Nucleo Icons -->
-    <link href="assets/css/nucleo-icons.css" rel="stylesheet" />
-    <link href="assets/css/nucleo-svg.css" rel="stylesheet" />
-    <!-- Font Awesome Icons -->
-    <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
-    <!-- Material Icons -->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
-    <!-- CSS Files -->
-    <link id="pagestyle" href="assets/css/material-kit-pro.css" rel="stylesheet" />
-  </head>
-  <body>
-  <!-- Navbar Dark -->
-  <nav class="navbar navbar-expand-lg navbar-light bg-white z-index-3 py-3">
-    <div class="container-fluid">
-      <b><a style="font-size:24px; color:blue;" class="navbar-brand navbar-brand:hover" href="" rel="tooltip" title="Designed and Coded by Creative Tim" data-placement="bottom" target="_blank">
-        Motivate: Fitness Tracker
-      </a></b>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-      <ul class="navbar-nav">
-_Begin1;
-
 	if(!$loggedin || $logout){
-	echo <<<_loggedOut
+?>
         <li class="nav-item">
           <a class="nav-link" href="index.php">Home</a>
         </li>
@@ -92,10 +90,10 @@ _Begin1;
         <li class="nav-item">
           <a class="nav-link" href="signup.php">Sign up</a>
         </li>
-        _loggedOut;
+<?php
         }
   else if($loggedin && $userRole=='user'){
-    echo <<<_loggedIn
+?>
         <li class="nav-item">
           <a class="nav-link" href="index.php">Home</a>
         </li>
@@ -117,10 +115,10 @@ _Begin1;
         <li class="nav-item">
           <a class="nav-link" href="logout.php">Log out</a>
         </li>
-        _loggedIn;
+<?php
   }
 	else{
-	  echo <<<_loggedIn
+?>
         <li class="nav-item">
           <a class="nav-link" href="index.php">Home</a>
         </li>
@@ -148,7 +146,7 @@ _Begin1;
         <li class="nav-item">
           <a class="nav-link" href="logout.php">Log out</a>
         </li>
-        _loggedIn;
+ <?php
 	}
 
 
@@ -159,10 +157,10 @@ echo "</div>";
 echo "</nav>";
 
 
-echo <<<_close
+?>
   </body>
   </html>
-_close;
-?>
+
+
 
 

@@ -9,7 +9,7 @@
 <?php
 if($loggedin && $userRole=='admin'){
 
-    echo <<<_Begin1
+?>
     <!DOCTYPE html>
     <html lang ="en">
       <head>
@@ -56,8 +56,8 @@ if($loggedin && $userRole=='admin'){
             </div>
           </div>
         </div>
-    _Begin1;
-   
+
+<?php   
                     // Attempt select query execution
                     $sql = "SELECT * FROM members WHERE user != '$user'";
                     if($result = $mysqli->query($sql)){

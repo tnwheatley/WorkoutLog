@@ -1,14 +1,14 @@
 <?php
-    if (!$loggedin) {
-    header("location:index.php");
-    exit();
-  }
-
  // Include config file
      require_once "config.php";
      require_once "header.php";
 
-echo <<<_begin
+     if (!$loggedin) {
+        header("location:index.php");
+        exit();
+      }
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -37,14 +37,13 @@ echo <<<_begin
 </head>
 
 <body>
-     <header class="pageHeader gradient">
+     <br><br><header class="pageHeader gradient">
                 <div class = "container-fluid">
                   <div class="row">
                     <div class = "col-sm-3 ">
                         <h4>Exercise Details</h4>
      </header>
-_begin;
-                 
+<?php                 
                
         	   $param_category = trim($_GET['value']);
                     // Attempt select query execution
