@@ -1,8 +1,8 @@
 <?php
   $dbhost  = 'localhost';    // Unlikely to require changing
-  $dbname  = 'workoutLogTest';   // Modify these...
-  $dbuser  = 'twheatley';   // ...variables according
-  $dbpass  = 'RuAu#30!t';   // ...to your installation
+  $dbname  = 'database';   // Modify these...
+  $dbuser  = 'user';   // ...variables according
+  $dbpass  = 'password';   // ...to your installation
   $appname = "Motivate: Fitness Tracker"; // ...and preference
 
   $connection = new mysqli($dbhost, $dbuser, $dbpass, $dbname);
