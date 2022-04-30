@@ -2,9 +2,9 @@
 
 /* Database credentials. */
 define('hn', 'localhost');
-define('un', 'twheatley');
-define('pw', 'RuAu#30!t');
-define('db', 'workoutLogTest');
+define('un', 'username');
+define('pw', 'password');
+define('db', 'database');
 
 /* Attempt to connect to MySQL database */
 $mysqli = new mysqli(hn, un, pw, db);
